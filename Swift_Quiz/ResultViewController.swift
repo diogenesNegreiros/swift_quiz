@@ -27,6 +27,6 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func close(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
