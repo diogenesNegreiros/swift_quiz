@@ -9,7 +9,7 @@ import Foundation
 
 class QuizManager {
     
-    private let quizes: [(question: String, correctAnswer: String, options: [String])] = [
+    private var quizes: [(question: String, correctAnswer: String, options: [String])] = [
         (question: "Quais desses é string?", correctAnswer: "\"Olá mundo\"",
          options: ["20", "\"Olá mundo\"", "Olá mundo", "'Olá mundo'"]),
         (question: "Qual é o resultado da expressão \"1\" + \"1\"", correctAnswer: "\"11\"",
@@ -68,10 +68,17 @@ class QuizManager {
         return _totalCorrectAnswers
     }
     
+    var totalquizesElements: Int {
+        return quizes.count
+    }
+    
     func refreshQuiz(){
-        let randomIndex = Int(arc4random_uniform(UInt32(quizes.count)))
-        let quizData = quizes[randomIndex]
-        quiz = Quiz(question: quizData.question, options: quizData.options, correctedAnswer: quizData.correctAnswer)
+        if quizes.count != 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(quizes.count)))
+            let quizData = quizes[randomIndex]
+            quiz = Quiz(question: quizData.question, options: quizData.options, correctedAnswer: quizData.correctAnswer)
+            quizes.remove(at: randomIndex)
+        }
     }
     
     func validateAnswer(index: Int) {

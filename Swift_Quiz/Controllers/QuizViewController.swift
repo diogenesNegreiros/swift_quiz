@@ -16,7 +16,6 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,9 +29,7 @@ class QuizViewController: UIViewController {
         } completion: { (success) in
             self.showResults()
         }
-        
         getNewQuiz()
-
     }
     
     func showResults(){
@@ -46,20 +43,29 @@ class QuizViewController: UIViewController {
     }
     
     func getNewQuiz() {
-        quizManager.refreshQuiz()
-        labelQuestion.text = quizManager.question
-        for i in 0..<quizManager.options.count {
-            let option = quizManager.options[i]
-            let button = buttonAnswers[i]
-            button.setTitle(option, for: .normal)
+        
+        if quizManager.totalquizesElements == 0 {
+            performSegue(withIdentifier: "resultSegue", sender: nil)
+        }else{
+            quizManager.refreshQuiz()
+            labelQuestion.text = quizManager.question
+            
+            for i in 0..<quizManager.options.count {
+                let option = quizManager.options[i]
+                let button = buttonAnswers[i]
+                button.setTitle(option, for: .normal)
+            }
         }
     }
-    
-    
     
     @IBAction func selectAnswer(_ sender: UIButton) {
         guard let index = buttonAnswers.firstIndex(of: sender) else {return}
         quizManager.validateAnswer(index: index)
-        getNewQuiz()
+        
+        if quizManager.totalquizesElements == 0 {
+            showResults()
+        }else{
+            getNewQuiz()
+        }
     }
 }

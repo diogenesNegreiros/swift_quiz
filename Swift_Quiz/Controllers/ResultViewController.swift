@@ -29,11 +29,9 @@ class ResultViewController: UIViewController {
         }else{
             labelScore.text = "0%"
         }
-        
-
     }
     
     @IBAction func close(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 }

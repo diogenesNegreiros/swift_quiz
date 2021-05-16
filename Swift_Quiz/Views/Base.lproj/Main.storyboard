@@ -47,7 +47,7 @@
         <!--Quiz View Controller-->
         <scene sceneID="7FY-nK-d8T">
             <objects>
-                <viewController id="gdR-u7-7V2" customClass="QuizViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" modalPresentationStyle="currentContext" id="gdR-u7-7V2" customClass="QuizViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKG-qA-ykj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,7 +162,7 @@
                         <outletCollection property="buttonAnswers" destination="liM-sc-qnb" collectionClass="NSMutableArray" id="mne-4f-UCf"/>
                         <outletCollection property="buttonAnswers" destination="agI-pP-vHw" collectionClass="NSMutableArray" id="0vB-ln-aRE"/>
                         <outletCollection property="buttonAnswers" destination="eEE-FC-EB4" collectionClass="NSMutableArray" id="fAc-A9-DUO"/>
-                        <segue destination="UBn-n0-7xH" kind="show" identifier="resultSegue" id="PFM-bW-Hyf"/>
+                        <segue destination="UBn-n0-7xH" kind="presentation" identifier="resultSegue" id="PFM-bW-Hyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U6-Qk-3Mp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -172,7 +172,7 @@
         <!--Result View Controller-->
         <scene sceneID="zda-LQ-h3G">
             <objects>
-                <viewController id="UBn-n0-7xH" customClass="ResultViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" modalPresentationStyle="currentContext" hidesBottomBarWhenPushed="YES" id="UBn-n0-7xH" customClass="ResultViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T20-fD-Ngi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
