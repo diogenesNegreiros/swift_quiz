@@ -20,6 +20,7 @@ class QuizManager {
          options: ["func = myFunction() {}", "let myFunction = func() {}", "let func = myFunction() {}", "func myFunction() {}"]),
         (question:
             """
+                 Qual a saída desse código?
                    func printSomething() {
                       print("Adoro funções")
                    }

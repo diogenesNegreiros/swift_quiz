@@ -22,8 +22,15 @@ class ResultViewController: UIViewController {
         labelAnswered.text = "Perguntas respondidas: \(totalAnswers)"
         labelCorrect.text = "Perguntas corretas: \(totalCorrectAnswers)"
         labelWrong.text = "Perguntas incorretas: \(totalAnswers - totalCorrectAnswers)"
-        let score = totalCorrectAnswers * 100 / totalAnswers
-        labelScore.text = "\(score)%"
+        
+        if totalAnswers != 0 {
+            let score = totalCorrectAnswers * 100 / totalAnswers
+            labelScore.text = "\(score)%"
+        }else{
+            labelScore.text = "0%"
+        }
+        
+
     }
     
     @IBAction func close(_ sender: UIButton) {
