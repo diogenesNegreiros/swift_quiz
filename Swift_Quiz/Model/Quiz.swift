@@ -11,7 +11,7 @@ class Quiz {
     
     let question: String
     let options: [String]
-    private let correctedAnswer: String
+    let correctedAnswer: String
     
     init(question: String, options: [String], correctedAnswer: String) {
         self.question = question

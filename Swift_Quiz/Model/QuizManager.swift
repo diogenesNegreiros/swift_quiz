@@ -9,6 +9,10 @@ import Foundation
 
 class QuizManager {
     
+    
+
+
+    
     private var quizes: [(question: String, correctAnswer: String, options: [String])] = [
         (question: "Quais desses é string?", correctAnswer: "\"Olá mundo\"",
          options: ["20", "\"Olá mundo\"", "Olá mundo", "'Olá mundo'"]),
@@ -70,6 +74,19 @@ class QuizManager {
     
     var totalquizesElements: Int {
         return quizes.count
+    }
+    
+    init() {
+        if let defaultQuizes = UserDefaults.standard.value(forKey: "quizes") {
+            self.quizes = defaultQuizes as! [(question: String, correctAnswer: String, options: [String])]
+        }
+        
+        UserDefaults.standard.set(quizes, forKey: "quizes")
+    }
+    
+    func addNewQuiz(quiz: Quiz) {
+        self.quizes.append((question: quiz.question, correctAnswer: quiz.correctedAnswer, options: quiz.options))
+        UserDefaults.standard.set(quizes, forKey: "quizes")
     }
     
     func refreshQuiz(){

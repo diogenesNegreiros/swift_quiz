@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162F813827A3759E008ECE9F /* ConfigQuiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162F813727A3759E008ECE9F /* ConfigQuiz.storyboard */; };
+		162F813A27A375E2008ECE9F /* ConfigQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */; };
 		994E91B7264F3F7000A41509 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91B6264F3F7000A41509 /* QuizViewController.swift */; };
 		994E91BC264F3F8800A41509 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91BB264F3F8800A41509 /* ResultViewController.swift */; };
 		994E91C4264F42E100A41509 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91C3264F42E100A41509 /* Quiz.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162F813727A3759E008ECE9F /* ConfigQuiz.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfigQuiz.storyboard; sourceTree = "<group>"; };
+		162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigQuizViewController.swift; sourceTree = "<group>"; };
 		994E91B6264F3F7000A41509 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		994E91BB264F3F8800A41509 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		994E91C3264F42E100A41509 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			children = (
 				994E91B6264F3F7000A41509 /* QuizViewController.swift */,
 				994E91BB264F3F8800A41509 /* ResultViewController.swift */,
+				162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				997918D7264F2AB60079E3A4 /* Main.storyboard */,
 				997918DC264F2AB70079E3A4 /* LaunchScreen.storyboard */,
+				162F813727A3759E008ECE9F /* ConfigQuiz.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				997918DE264F2AB70079E3A4 /* LaunchScreen.storyboard in Resources */,
+				162F813827A3759E008ECE9F /* ConfigQuiz.storyboard in Resources */,
 				997918DB264F2AB70079E3A4 /* Assets.xcassets in Resources */,
 				99793E6C2650C09D004D4C72 /* README.md in Resources */,
 				997918D9264F2AB60079E3A4 /* Main.storyboard in Resources */,
@@ -298,6 +305,7 @@
 				994E91BC264F3F8800A41509 /* ResultViewController.swift in Sources */,
 				994E91C4264F42E100A41509 /* Quiz.swift in Sources */,
 				994E91C9264F42F700A41509 /* QuizManager.swift in Sources */,
+				162F813A27A375E2008ECE9F /* ConfigQuizViewController.swift in Sources */,
 				997918D2264F2AB60079E3A4 /* AppDelegate.swift in Sources */,
 				997918D4264F2AB60079E3A4 /* SceneDelegate.swift in Sources */,
 				994E91B7264F3F7000A41509 /* QuizViewController.swift in Sources */,

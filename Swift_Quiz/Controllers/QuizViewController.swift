@@ -69,3 +69,10 @@ class QuizViewController: UIViewController {
         }
     }
 }
+
+extension QuizViewController {
+    
+    class func loadStoryboard() -> QuizViewController {
+        return UIStoryboard(name: "main", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as! QuizViewController
+    }
+}
