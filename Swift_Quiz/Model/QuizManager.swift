@@ -81,7 +81,7 @@ class QuizManager {
             self.quizes = defaultQuizes as! [(question: String, correctAnswer: String, options: [String])]
         }
         
-        UserDefaults.standard.set(quizes, forKey: "quizes")
+//        UserDefaults.standard.set(quizes, forKey: "quizes")
     }
     
     func addNewQuiz(quiz: Quiz) {

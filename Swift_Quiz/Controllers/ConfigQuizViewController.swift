@@ -21,9 +21,6 @@ class ConfigQuizViewController: UIViewController {
     @IBAction func addButtonAction(_ sender: Any) {
     }
     
-    @IBAction func doneButtonAction(_ sender: Any) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
