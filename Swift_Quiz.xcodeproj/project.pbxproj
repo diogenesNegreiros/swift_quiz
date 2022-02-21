@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		162F813A27A375E2008ECE9F /* ConfigQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */; };
+		16ADB9EF27C3128C0015D6A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16ADB9ED27C3128C0015D6A1 /* Model.xcdatamodeld */; };
 		994E91B7264F3F7000A41509 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91B6264F3F7000A41509 /* QuizViewController.swift */; };
 		994E91BC264F3F8800A41509 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91BB264F3F8800A41509 /* ResultViewController.swift */; };
 		994E91C4264F42E100A41509 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E91C3264F42E100A41509 /* Quiz.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigQuizViewController.swift; sourceTree = "<group>"; };
+		16ADB9EE27C3128C0015D6A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		994E91B6264F3F7000A41509 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		994E91BB264F3F8800A41509 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		994E91C3264F42E100A41509 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				99793E6B2650C09D004D4C72 /* README.md */,
+				16ADB9ED27C3128C0015D6A1 /* Model.xcdatamodeld */,
 				997918D1264F2AB60079E3A4 /* AppDelegate.swift */,
 				997918D3264F2AB60079E3A4 /* SceneDelegate.swift */,
 				99793E5C2650A35E004D4C72 /* Controllers */,
@@ -301,6 +304,7 @@
 				994E91BC264F3F8800A41509 /* ResultViewController.swift in Sources */,
 				994E91C4264F42E100A41509 /* Quiz.swift in Sources */,
 				994E91C9264F42F700A41509 /* QuizManager.swift in Sources */,
+				16ADB9EF27C3128C0015D6A1 /* Model.xcdatamodeld in Sources */,
 				162F813A27A375E2008ECE9F /* ConfigQuizViewController.swift in Sources */,
 				997918D2264F2AB60079E3A4 /* AppDelegate.swift in Sources */,
 				997918D4264F2AB60079E3A4 /* SceneDelegate.swift in Sources */,
@@ -637,6 +641,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		16ADB9ED27C3128C0015D6A1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				16ADB9EE27C3128C0015D6A1 /* Model.xcdatamodel */,
+			);
+			currentVersion = 16ADB9EE27C3128C0015D6A1 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 997918C6264F2AB60079E3A4 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class QuizViewController: UIViewController {
     @IBOutlet weak var viewTimer: UIView!
