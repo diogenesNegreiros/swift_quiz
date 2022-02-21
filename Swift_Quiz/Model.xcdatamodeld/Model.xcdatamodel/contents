@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Alternativa" representedClassName="Alternativa" syncable="YES" codeGenerationType="class">
-        <attribute name="texto" optional="YES" attributeType="String"/>
-        <relationship name="questao" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Questao" inverseName="alternativa" inverseEntity="Questao"/>
+        <attribute name="texto1" optional="YES" attributeType="String"/>
+        <attribute name="texto2" optional="YES" attributeType="String"/>
+        <attribute name="texto3" optional="YES" attributeType="String"/>
+        <attribute name="texto4" optional="YES" attributeType="String"/>
+        <relationship name="questao" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="alternativa" inverseEntity="Question"/>
     </entity>
-    <entity name="Questao" representedClassName="Questao" syncable="YES" codeGenerationType="class">
-        <attribute name="acerto" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="anunciado" optional="YES" attributeType="String"/>
-        <attribute name="resposta" optional="YES" attributeType="String"/>
-        <relationship name="alternativa" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alternativa" inverseName="questao" inverseEntity="Alternativa"/>
+    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" optional="YES" attributeType="String"/>
+        <attribute name="answer1" optional="YES" attributeType="String"/>
+        <attribute name="answer2" optional="YES" attributeType="String"/>
+        <attribute name="answer3" optional="YES" attributeType="String"/>
+        <attribute name="answer4" optional="YES" attributeType="String"/>
+        <attribute name="hit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="statement" optional="YES" attributeType="String"/>
+        <relationship name="alternativa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alternativa" inverseName="questao" inverseEntity="Alternativa"/>
     </entity>
     <elements>
-        <element name="Questao" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="Alternativa" positionX="180.0380859375" positionY="-15.03125" width="128" height="59"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Alternativa" positionX="180.0380859375" positionY="-15.03125" width="128" height="118"/>
     </elements>
 </model>
