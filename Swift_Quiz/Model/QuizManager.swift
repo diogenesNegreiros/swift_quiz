@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 class QuizManager {
     
@@ -53,6 +55,13 @@ class QuizManager {
 //         options: ["main.init", "super.init", "self.init", "super"]),
 //    ]
     
+    var context: NSManagedObjectContext {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    var fetchedResultController: NSFetchedResultsController<Question>!
+    
     private var quiz: Question!
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
@@ -62,7 +71,7 @@ class QuizManager {
     }
     
     var options: [String?] {
-        return [quiz.answer1, quiz.answer2, quiz.answer3]
+        return [quiz.answer1, quiz.answer2, quiz.answer3, quiz.answer4]
     }
     
     var totalAnswers: Int {
@@ -78,15 +87,19 @@ class QuizManager {
     }
     
     init() {
+        print("")
         
-        self.quest.answer1 = "an 1"
-        self.quest.answer2 = "an 2"
-        self.quest.answer3 = "an 3"
-        self.quest.answer4 = "an 4"
-        self.quest.statement = "Pergunta ?"
-        self.quest.answer = "an 1"
-
-        self.quizes.append(self.quest)
+        self.quiz = Question(context: self.context)
+//        self.quest = Question(context: self.context)
+//        
+//        self.quest.answer1 = "an 1"
+//        self.quest.answer2 = "an 2"
+//        self.quest.answer3 = "an 3"
+//        self.quest.answer4 = "an 4"
+//        self.quest.statement = "Pergunta ?"
+//        self.quest.answer = "an 1"
+//
+//        self.quizes.append(self.quest)
         
 //        if let defaultQuizes = UserDefaults.standard.value(forKey: "quizes") {
 //            self.quizes = defaultQuizes as! [(question: String, correctAnswer: String, options: [String])]
@@ -103,7 +116,7 @@ class QuizManager {
         if quizes.count != 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(quizes.count)))
             let quizData = quizes[randomIndex]
-            quiz = Question()
+            quiz = Question(context: context)
             quiz.statement = quizData.statement
             quiz.answer1 = quizData.answer1
             quiz.answer2 = quizData.answer2
@@ -112,6 +125,20 @@ class QuizManager {
             quiz.answer = quizData.answer
             
             quizes.remove(at: randomIndex)
+        }
+    }
+    
+    func loadAllQuizes() {
+        let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
+        let sortDescritor = NSSortDescriptor(key: "statement", ascending: true)
+        fetchRequest.sortDescriptors  = [sortDescritor]
+        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+//        fetchedResultController.delegate = self
+        do{
+        try fetchedResultController.performFetch()
+            self.quizes = fetchedResultController.fetchedObjects ?? []
+        }catch {
+            print(error.localizedDescription)
         }
     }
     

@@ -23,6 +23,7 @@ class QuizViewController: UIViewController {
         super.viewWillAppear(animated)
         
         quizManager = QuizManager()
+        quizManager.loadAllQuizes()
         viewTimer.frame.size.width = view.frame.size.width
         
         UIView.animate(withDuration: 60.0, delay: 0, options: .curveLinear) {

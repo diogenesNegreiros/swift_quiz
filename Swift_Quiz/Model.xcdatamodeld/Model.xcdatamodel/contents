@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="String"/>
-        <attribute name="answer1" attributeType="String"/>
+        <attribute name="answer1" optional="YES" attributeType="String"/>
         <attribute name="answer2" optional="YES" attributeType="String"/>
         <attribute name="answer3" optional="YES" attributeType="String"/>
         <attribute name="answer4" optional="YES" attributeType="String"/>

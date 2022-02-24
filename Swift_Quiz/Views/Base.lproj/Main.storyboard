@@ -32,7 +32,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="ypx-Ov-e4p" kind="show" id="wTu-sr-xG6"/>
+                                    <segue destination="ypx-Ov-e4p" kind="show" id="PT2-Ye-1ee"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="65"/>
+            <point key="canvasLocation" x="789" y="61"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="7FY-nK-d8T">
@@ -377,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHy-pz-W9l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="62"/>
+            <point key="canvasLocation" x="1534" y="585"/>
         </scene>
     </scenes>
     <resources>

@@ -27,6 +27,12 @@ class ConfigQuizViewController: UIViewController {
         myQuestion.answer3 = answer3.text
         myQuestion.answer4 = answer4.text
         myQuestion.answer = correctAnswer.text
+        
+        do {
+            try context.save()
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     
     override func viewDidLoad() {
