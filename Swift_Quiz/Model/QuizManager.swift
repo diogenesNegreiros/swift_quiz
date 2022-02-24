@@ -42,16 +42,6 @@ class QuizManager {
     }
     
     init() {
-//        quiz = Question(context: self.context)
-        //        quiz.statement = "Qual o nome desse App de Perguntas e respostas?"
-        //        quiz.answer1 = "Quiz Manager"
-        //        quiz.answer2 = "Quiz Brazuca"
-        //        quiz.answer3 = "Study Quiz"
-        //        quiz.answer4 = "Swift Quiz"
-        //        quiz.answer = "Swift Quiz"
-        //
-        //        self.quizes.append(self.quiz)
-        
         loadAllQuizes()
     }
     
