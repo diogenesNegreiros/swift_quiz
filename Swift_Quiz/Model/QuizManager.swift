@@ -11,7 +11,7 @@ import CoreData
 
 class QuizManager {
     
-    var quest = Question()
+//    var quest = Question()
     
     var quizes: [Question] = []
 
@@ -62,7 +62,7 @@ class QuizManager {
     
     var fetchedResultController: NSFetchedResultsController<Question>!
     
-    private var quiz: Question!
+    private var quiz = Question()
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
     
@@ -89,23 +89,16 @@ class QuizManager {
     init() {
         print("")
         
-        self.quiz = Question(context: self.context)
-//        self.quest = Question(context: self.context)
-//        
-//        self.quest.answer1 = "an 1"
-//        self.quest.answer2 = "an 2"
-//        self.quest.answer3 = "an 3"
-//        self.quest.answer4 = "an 4"
-//        self.quest.statement = "Pergunta ?"
-//        self.quest.answer = "an 1"
-//
-//        self.quizes.append(self.quest)
+        quiz = Question(context: self.context)
         
-//        if let defaultQuizes = UserDefaults.standard.value(forKey: "quizes") {
-//            self.quizes = defaultQuizes as! [(question: String, correctAnswer: String, options: [String])]
-//        }
-        
-//        UserDefaults.standard.set(quizes, forKey: "quizes")
+        quiz.statement = "Qual o nome desse App de Perguntas e respostas?"
+        quiz.answer1 = "Quiz Manager"
+        quiz.answer2 = "Quiz Brazuca"
+        quiz.answer3 = "Study Quiz"
+        quiz.answer4 = "Swift Quiz"
+        quiz.answer = "Swift Quiz"
+
+        self.quizes.append(self.quiz)
     }
     
     func addNewQuiz(quiz: Question) {
