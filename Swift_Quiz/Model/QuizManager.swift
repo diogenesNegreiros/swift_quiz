@@ -59,7 +59,6 @@ class QuizManager {
             quiz.answer2 = quizData.answer2
             quiz.answer3 = quizData.answer3
             quiz.answer4 = quizData.answer4
-            quiz.answer = quizData.answer
             quiz.correctIndex = quizData.correctIndex
             
             quizes.remove(at: randomIndex)
@@ -86,7 +85,7 @@ class QuizManager {
                 quiz.answer2 = "Quiz Brazuca"
                 quiz.answer3 = "Study Quiz"
                 quiz.answer4 = "Swift Quiz"
-                quiz.answer = "Swift Quiz"
+                quiz.correctIndex = "4"
                 
                 self.quizes.append(self.quiz)
             }
@@ -97,8 +96,6 @@ class QuizManager {
     
     func validateAnswer(index: Int) {
         _totalAnswers += 1
-        let c = quiz.correctIndex
-        
         if String(index + 1)  == quiz.correctIndex {
             _totalCorrectAnswers += 1
         }
