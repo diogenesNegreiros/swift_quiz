@@ -60,6 +60,7 @@ class QuizManager {
             quiz.answer3 = quizData.answer3
             quiz.answer4 = quizData.answer4
             quiz.answer = quizData.answer
+            quiz.correctIndex = quizData.correctIndex
             
             quizes.remove(at: randomIndex)
         }
@@ -96,7 +97,9 @@ class QuizManager {
     
     func validateAnswer(index: Int) {
         _totalAnswers += 1
-        if self.options[index]  == quiz.answer {
+        let c = quiz.correctIndex
+        
+        if String(index + 1)  == quiz.correctIndex {
             _totalCorrectAnswers += 1
         }
     }
