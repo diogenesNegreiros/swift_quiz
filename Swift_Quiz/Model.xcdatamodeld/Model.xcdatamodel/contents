@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Alternativa" representedClassName="Alternativa" syncable="YES" codeGenerationType="class">
-        <attribute name="texto1" optional="YES" attributeType="String"/>
-        <attribute name="texto2" optional="YES" attributeType="String"/>
-        <attribute name="texto3" optional="YES" attributeType="String"/>
-        <attribute name="texto4" optional="YES" attributeType="String"/>
-        <relationship name="questao" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="alternativa" inverseEntity="Question"/>
-    </entity>
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="String"/>
         <attribute name="answer1" optional="YES" attributeType="String"/>
@@ -15,10 +8,8 @@
         <attribute name="answer4" optional="YES" attributeType="String"/>
         <attribute name="hit" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="statement" optional="YES" attributeType="String"/>
-        <relationship name="alternativa" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Alternativa" inverseName="questao" inverseEntity="Alternativa"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-63" positionY="-18" width="128" height="163"/>
-        <element name="Alternativa" positionX="180.0380859375" positionY="-15.03125" width="128" height="118"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>
