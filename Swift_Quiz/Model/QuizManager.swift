@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class QuizManager {
-    private var quizes: [Question] = []
+    var quizes: [Question] = []
     
     private var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -77,6 +77,8 @@ class QuizManager {
     
     func loadAllQuizes() {
         quizes = []
+        context.reset()
+        
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
         let sortDescritor = NSSortDescriptor(key: "statement", ascending: true)
         fetchRequest.sortDescriptors  = [sortDescritor]
