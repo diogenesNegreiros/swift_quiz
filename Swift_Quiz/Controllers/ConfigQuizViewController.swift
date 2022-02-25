@@ -69,7 +69,7 @@ class ConfigQuizViewController: UIViewController {
             && answer4.text != ""
             && correctAnswer.text != "" {
             addButton.isUserInteractionEnabled = true
-            addButton.backgroundColor = .blue
+            addButton.backgroundColor = .systemBlue
         } else {
             addButton.isUserInteractionEnabled = false
             addButton.backgroundColor = .lightGray

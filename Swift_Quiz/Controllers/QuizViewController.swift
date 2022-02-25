@@ -13,6 +13,10 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet var buttonAnswers: [UIButton]!
     
+    var time: Double = 30.0
+    
+    var timeRedZone: Double = 7.5
+    
     var quizManager: QuizManager!
     
     override func viewDidLoad() {
@@ -24,11 +28,16 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.viewTimer.backgroundColor = .blue
         quizManager = QuizManager()
         viewTimer.frame.size.width = view.frame.size.width
         
-        UIView.animate(withDuration: 60.0, delay: 0, options: .curveLinear) {
+        UIView.animate(withDuration: time, delay: 0, options: .curveLinear) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.time - 10.0) {
+                self.viewTimer.backgroundColor = .red
+            }
+            
             self.viewTimer.frame.size.width = 0
         } completion: { (success) in
             self.showResults()
