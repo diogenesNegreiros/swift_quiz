@@ -15,6 +15,11 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func goToAddAnsers(_ sender: Any) {
+        let vc = ConfigQuizViewController.loadStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func clearAnsersDataBase(_ sender: Any) {
         
         showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {

@@ -10,6 +10,7 @@ import CoreData
 
 class ConfigQuizViewController: UIViewController {
     
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var question: UITextView!
     @IBOutlet weak var answer1: UITextField!
     @IBOutlet weak var answer2: UITextField!
@@ -91,7 +92,7 @@ class ConfigQuizViewController: UIViewController {
 extension ConfigQuizViewController {
     
     class func loadStoryboard() -> ConfigQuizViewController {
-        return UIStoryboard(name: "ConfigQuiz", bundle: nil).instantiateViewController(withIdentifier: "ConfigQuizViewController") as! ConfigQuizViewController
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigQuizViewController") as! ConfigQuizViewController
     }
 }
 
