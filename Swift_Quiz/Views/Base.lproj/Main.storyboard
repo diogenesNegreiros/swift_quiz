@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,8 +21,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-PH-mKQ">
-                                <rect key="frame" x="0.0" y="776" width="414" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0Z-uC-qHL">
+                                <rect key="frame" x="0.0" y="647" width="414" height="62"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Iniciar Quiz">
@@ -32,7 +32,35 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="24X-Dz-GZB" kind="show" id="hpS-xH-xZa"/>
+                                    <segue destination="gdR-u7-7V2" kind="show" id="WzX-ek-gJh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh6-tc-hsX">
+                                <rect key="frame" x="0.0" y="787" width="414" height="62"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Limpar banco de perguntas ‼️">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                </variation>
+                                <connections>
+                                    <action selector="clearAnsersDataBase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lmT-Ji-VL2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nc5-PH-mKQ">
+                                <rect key="frame" x="0.0" y="717" width="414" height="62"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Adicionar perguntas">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="24X-Dz-GZB" kind="show" id="ThO-wC-bx3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788.40579710144937" y="60.9375"/>
+            <point key="canvasLocation" x="712" y="48"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="7FY-nK-d8T">
@@ -152,11 +180,11 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eQ-g2-yLY">
-                                <rect key="frame" x="30" y="794" width="354" height="55"/>
+                                <rect key="frame" x="30" y="794" width="354" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Finalizar Quiz">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Finalizar quiz">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -165,7 +193,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 </variation>
                                 <connections>
                                     <segue destination="UBn-n0-7xH" kind="show" id="RsI-pw-gs2"/>
@@ -177,8 +205,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Suv-ui-ycF"/>
                     <connections>
+                        <outlet property="endButton" destination="1eQ-g2-yLY" id="Wl4-yR-BQs"/>
                         <outlet property="labelQuestion" destination="kAP-ty-kWP" id="Gh0-ds-z1o"/>
-                        <outlet property="viewTimer" destination="M95-pf-vcx" id="9xh-7v-HSa"/>
+                        <outlet property="viewBackgroundTimer" destination="zMH-wK-ZGx" id="gJl-nW-pYt"/>
+                        <outlet property="viewOptions" destination="Skd-2N-v4x" id="uqK-gS-SYQ"/>
+                        <outlet property="viewTimer" destination="M95-pf-vcx" id="pmv-vn-J3j"/>
                         <outletCollection property="buttonAnswers" destination="2nl-8T-3Om" collectionClass="NSMutableArray" id="oJT-kI-RZu"/>
                         <outletCollection property="buttonAnswers" destination="liM-sc-qnb" collectionClass="NSMutableArray" id="mne-4f-UCf"/>
                         <outletCollection property="buttonAnswers" destination="agI-pP-vHw" collectionClass="NSMutableArray" id="0vB-ln-aRE"/>
@@ -188,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U6-Qk-3Mp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2258" y="62"/>
+            <point key="canvasLocation" x="2003" y="406"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="zda-LQ-h3G">
@@ -219,10 +250,10 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="non-np-gJZ">
-                                <rect key="frame" x="30" y="790" width="354" height="55"/>
+                                <rect key="frame" x="30" y="790" width="354" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Reiniciar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -232,7 +263,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                 </variation>
                                 <connections>
                                     <action selector="close:" destination="UBn-n0-7xH" eventType="touchUpInside" id="LyG-Ut-RNC"/>
@@ -269,11 +300,11 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWb-nt-0K1">
-                                <rect key="frame" x="30" y="716" width="354" height="55"/>
+                                <rect key="frame" x="30" y="716" width="354" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Ir para a Home">
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Ir para a home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -282,7 +313,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                 </variation>
                                 <connections>
                                     <action selector="goToHome:" destination="UBn-n0-7xH" eventType="touchUpInside" id="eZw-Q3-3l9"/>
@@ -320,7 +351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1X-R9-dmY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="61"/>
+            <point key="canvasLocation" x="-42" y="48"/>
         </scene>
         <!--Config Quiz View Controller-->
         <scene sceneID="6aj-cK-rYn">
@@ -442,7 +473,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <buttonConfiguration key="configuration" style="plain" title="Adicionar">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
@@ -462,8 +493,8 @@
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Finalizar">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Iniciar quiz">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="25"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <userDefinedRuntimeAttributes>
@@ -526,11 +557,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAV-la-atO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="60"/>
+            <point key="canvasLocation" x="712" y="745"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="PFM-bW-Hyf"/>
+        <segue reference="WzX-ek-gJh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchScreen" width="320" height="568"/>

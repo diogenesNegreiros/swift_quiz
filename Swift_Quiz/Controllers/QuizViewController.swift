@@ -12,11 +12,12 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var viewTimer: UIView!
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet var buttonAnswers: [UIButton]!
+    @IBOutlet weak var viewBackgroundTimer: UIView!
+    @IBOutlet weak var endButton: UIButton!
+    @IBOutlet weak var viewOptions: UIView!
     
     var time: Double = 30.0
-    
     var timeRedZone: Double = 7.5
-    
     var quizManager: QuizManager!
     
     override func viewDidLoad() {
@@ -28,25 +29,50 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewTimer.backgroundColor = .blue
         quizManager = QuizManager()
         viewTimer.frame.size.width = view.frame.size.width
         
-        UIView.animate(withDuration: time, delay: 0, options: .curveLinear) {
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.time - 10.0) {
+        if quizManager.totalquizesElements > 0 {
+            hideViews(isHide: false)
+            self.viewTimer.backgroundColor = .blue
+            UIView.animate(withDuration: time, delay: 0, options: .curveLinear) {
+                //            DispatchQueue.main.asyncAfter(deadline: .now() + self.time - 10.0) {
+                //                self.viewTimer.backgroundColor = .red
+                //            }
                 self.viewTimer.backgroundColor = .red
+                self.viewTimer.frame.size.width = 0
+            } completion: { (success) in
+                self.showResults()
             }
-            
-            self.viewTimer.frame.size.width = 0
-        } completion: { (success) in
-            self.showResults()
+            getNewQuiz()
+        }else {
+            hideViews(isHide: true)
+            let alert = UIAlertController(
+                title: "Atenção",
+                message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.navigationController?.popToRootViewController(animated: false)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
-        getNewQuiz()
+    }
+    
+    @objc func backHome() {
+        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func showResults(){
         performSegue(withIdentifier: "resultSegue", sender: nil)
+    }
+    
+    func hideViews(isHide: Bool) {
+        viewTimer.isHidden = isHide
+        labelQuestion.isHidden = isHide
+        viewBackgroundTimer.isHidden = isHide
+        endButton.isHidden = isHide
+        viewOptions.isHidden = isHide
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
