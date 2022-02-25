@@ -19,6 +19,9 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func backToHome(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -41,6 +44,7 @@ class QuizViewController: UIViewController {
         let resultViewController = segue.destination as! ResultViewController
         resultViewController.totalAnswers = quizManager.totalAnswers
         resultViewController.totalCorrectAnswers = quizManager.totalCorrectAnswers
+        resultViewController.delegate = self
     }
     
     func getNewQuiz() {
@@ -76,4 +80,11 @@ extension QuizViewController {
     class func loadStoryboard() -> QuizViewController {
         return UIStoryboard(name: "main", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as! QuizViewController
     }
+}
+
+extension QuizViewController: ResultViewControllerDelegate {
+    func goToRootController() {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
 }

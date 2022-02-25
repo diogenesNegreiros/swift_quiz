@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ResultViewControllerDelegate: AnyObject {
+    func goToRootController()
+}
+
 class ResultViewController: UIViewController {
     
     @IBOutlet weak var labelAnswered: UILabel!
@@ -16,6 +20,7 @@ class ResultViewController: UIViewController {
     
     var totalCorrectAnswers: Int = 0
     var totalAnswers: Int = 0
+    weak var delegate: ResultViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +38,9 @@ class ResultViewController: UIViewController {
     
     @IBAction func close(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func goToHome(_ sender: Any) {
+        delegate?.goToRootController()
     }
 }
