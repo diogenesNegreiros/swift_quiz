@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1615292927C970AF00FE73F1 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615292827C970AF00FE73F1 /* UIView+extensions.swift */; };
 		162F813A27A375E2008ECE9F /* ConfigQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */; };
 		16ADB9EF27C3128C0015D6A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16ADB9ED27C3128C0015D6A1 /* Model.xcdatamodeld */; };
 		16ADBA3F27C31E700015D6A1 /* ViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ADBA3E27C31E700015D6A1 /* ViewController+CoreData.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1615292827C970AF00FE73F1 /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		162F813927A375E2008ECE9F /* ConfigQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigQuizViewController.swift; sourceTree = "<group>"; };
 		16ADB9EE27C3128C0015D6A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		16ADBA3E27C31E700015D6A1 /* ViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CoreData.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				16ADBA3E27C31E700015D6A1 /* ViewController+CoreData.swift */,
 				16ADBAF127C944940015D6A1 /* ViewControle+Alerts.swift */,
+				1615292827C970AF00FE73F1 /* UIView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1615292927C970AF00FE73F1 /* UIView+extensions.swift in Sources */,
 				994E91BC264F3F8800A41509 /* ResultViewController.swift in Sources */,
 				994E91C9264F42F700A41509 /* QuizManager.swift in Sources */,
 				16ADB9EF27C3128C0015D6A1 /* Model.xcdatamodeld in Sources */,
