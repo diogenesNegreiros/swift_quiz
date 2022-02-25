@@ -22,8 +22,6 @@ class ConfigQuizViewController: UIViewController {
     var myQuestion: Question!
     
     @IBAction func addButtonAction(_ sender: Any) {
-        
-        
         myQuestion = Question(context: context)
         myQuestion.statement = question.text
         myQuestion.answer1 = answer1.text
@@ -32,7 +30,7 @@ class ConfigQuizViewController: UIViewController {
         myQuestion.answer4 = answer4.text
         //        myQuestion.answer = correctAnswer.text
         myQuestion.correctIndex = correctAnswer.text
-        
+        clearAllTexts()
         do {
             try context.save()
         }catch{
@@ -74,15 +72,21 @@ class ConfigQuizViewController: UIViewController {
             addButton.isUserInteractionEnabled = false
             addButton.backgroundColor = .lightGray
         }
-        
+    }
+    
+    func clearAllTexts() {
+        question.text = ""
+        answer1.text = ""
+        answer2.text = ""
+        answer3.text = ""
+        answer4.text = ""
+        correctAnswer.text = ""
     }
     
     @objc func dismissMyKeyboard(){
         view.endEditing(true)
     }
 }
-
-
 
 extension ConfigQuizViewController {
     
@@ -92,11 +96,13 @@ extension ConfigQuizViewController {
 }
 
 extension ConfigQuizViewController: UITextFieldDelegate, UITextViewDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
         self.validateAddButton()
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         self.validateAddButton()
     }
+    
 }
