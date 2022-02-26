@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ConfigQuizViewController: UIViewController {
+class CreateQuestionsViewController: UIViewController {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var question: UITextView!
@@ -89,14 +89,14 @@ class ConfigQuizViewController: UIViewController {
     }
 }
 
-extension ConfigQuizViewController {
+extension CreateQuestionsViewController {
     
-    class func loadStoryboard() -> ConfigQuizViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigQuizViewController") as! ConfigQuizViewController
+    class func loadStoryboard() -> CreateQuestionsViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigQuizViewController") as! CreateQuestionsViewController
     }
 }
 
-extension ConfigQuizViewController: UITextFieldDelegate, UITextViewDelegate {
+extension CreateQuestionsViewController: UITextFieldDelegate, UITextViewDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.validateAddButton()

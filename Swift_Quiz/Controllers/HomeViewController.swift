@@ -2,51 +2,25 @@
 //  HomeViewController.swift
 //  Swift_Quiz
 //
-//  Created by Diogenes de Souza Negreiros on 25/02/22.
+//  Created by Diogenes de Souza Negreiros on 26/02/22.
 //
 
 import UIKit
-import CoreData
 
 class HomeViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    @IBAction func goToAddAnsers(_ sender: Any) {
-        let vc = ConfigQuizViewController.loadStoryboard()
+
+    @IBAction func startQuizAction(_ sender: Any) {
+        let vc = QuizViewController.loadStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func clearAnsersDataBase(_ sender: Any) {
-        
-        showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {
-            self.deleteDataBase()
-        }
+    @IBAction func goToConfigAction(_ sender: Any) {
+        let vc = ConfigViewController.loadStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    func deleteDataBase() {
-        // Get a reference to a NSPersistentStoreCoordinator
-        let storeContainer = persistentContainer.persistentStoreCoordinator
-        
-        // Delete each existing persistent store
-        for store in storeContainer.persistentStores {
-            
-            do {
-                try storeContainer.destroyPersistentStore(
-                    at: store.url!,
-                    ofType: store.type,
-                    options: nil
-                )
-            }catch {
-                print(error.localizedDescription)
-            }
-        }
-        persistentContainer.loadPersistentStores {
-            (store, error) in
-            // Handle errors
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
+    
 }
