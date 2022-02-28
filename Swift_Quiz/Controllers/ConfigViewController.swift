@@ -15,6 +15,7 @@ class ConfigViewController: UIViewController {
     var quizTimerSeconds: Double = 30.0
     var userInfo = UserDefaults.standard
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +23,8 @@ class ConfigViewController: UIViewController {
         if userTime > 0.0 {
             quizTimerSeconds = userTime
         }
+        pickerQuizTimer.addTarget(self, action: #selector(timerChanger), for: .valueChanged)
+
     }
     
     @IBAction func backToHome(_ sender: Any) {
@@ -38,6 +41,10 @@ class ConfigViewController: UIViewController {
         showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {
             self.deleteDataBase()
         }
+    }
+    
+    @objc func timerChanger(sender: UIDatePicker) {
+        print(sender.date)
     }
     
     func deleteDataBase() {
@@ -65,8 +72,8 @@ class ConfigViewController: UIViewController {
 }
 
 extension ConfigViewController {
-    
     class func loadStoryboard() -> ConfigViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigViewController") as! ConfigViewController
     }
 }
+

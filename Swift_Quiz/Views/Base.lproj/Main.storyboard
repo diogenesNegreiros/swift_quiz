@@ -709,6 +709,7 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="mQs-uh-QSE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="xxA-gm-Tob" id="XfA-Dl-L30"/>
                         <outlet property="answer1" destination="qBb-yh-1wj" id="M28-0j-x20"/>
                         <outlet property="answer2" destination="YUI-dx-L39" id="XSg-EO-Klv"/>
                         <outlet property="answer3" destination="1lL-gF-bkf" id="it5-oQ-08j"/>
