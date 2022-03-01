@@ -15,9 +15,31 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var viewBackgroundTimer: UIView!
     @IBOutlet weak var endButton: UIButton!
     @IBOutlet weak var viewOptions: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
     
-    var time: Double = 30.0
-    var timeRedZone: Double = 7.5
+    var timeMinutesRemaining: Int = 2 {
+        didSet {
+            DispatchQueue.main.async {
+                self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):\(self.timeSecondsRemaining)"
+            }
+            
+        }
+    }
+    var timerMinutes: Timer!
+    
+    var timeSecondsRemaining: Int = 60 {
+        didSet {
+            DispatchQueue.main.async {
+                let str = String(format: "%02d", self.timeSecondsRemaining)
+                self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):\(str)"
+            }
+            
+        }
+    }
+    var timerSeconds: Timer!
+    
+    var time: Double = 120.0
+ 
     var quizManager: QuizManager!
     
     override func viewDidLoad() {
@@ -29,16 +51,29 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
+        }
+        
         quizManager = QuizManager()
         viewTimer.frame.size.width = view.frame.size.width
         
         if quizManager.totalquizesElements > 0 {
+
+            
+            
             hideViews(isHide: false)
             self.viewTimer.backgroundColor = .blue
             UIView.animate(withDuration: time, delay: 0, options: .curveLinear) {
                 //            DispatchQueue.main.asyncAfter(deadline: .now() + self.time - 10.0) {
                 //                self.viewTimer.backgroundColor = .red
                 //            }
+                
+                self.timeMinutesRemaining -= 1
+                self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
+                self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
+
                 self.viewTimer.backgroundColor = .red
                 self.viewTimer.frame.size.width = 0
             } completion: { (success) in
@@ -61,6 +96,26 @@ class QuizViewController: UIViewController {
     
     @objc func backHome() {
         self.navigationController?.popToRootViewController(animated: false)
+    }
+    
+    @objc func stepMinutes() {
+        if timeMinutesRemaining > 0 {
+            timeMinutesRemaining -= 1
+        }else {
+            timerMinutes.invalidate()
+        }
+    }
+    
+    @objc func stepSeconds() {
+        if timeSecondsRemaining > 1 {
+            timeSecondsRemaining -= 1
+        }else {
+            timeSecondsRemaining = 60
+        }
+        
+        if timeSecondsRemaining == 1 && timeMinutesRemaining == 0 {
+            timerSeconds.invalidate()
+        }
     }
     
     func showResults(){

@@ -12,7 +12,7 @@ class ConfigViewController: UIViewController {
     
     @IBOutlet weak var pickerQuizTimer: UIDatePicker!
     
-    var quizTimerSeconds: Double = 30.0
+    var quizTimerSeconds: Double = 60.0
     var userInfo = UserDefaults.standard
     
     
@@ -25,17 +25,21 @@ class ConfigViewController: UIViewController {
 
     }
     
-    @IBAction func pickerTimeDidBegin(_ sender: UIDatePicker, forEvent event: UIEvent) {
-        print("changer........Begin")
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.pickerQuizTimer.countDownDuration = TimeInterval()
+        }
     }
-    @IBAction func datePickerEditngChanged(_ sender: UIDatePicker) {
-        print("changer........")
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        userInfo.set(quizTimerSeconds, forKey: "time")
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         let date = sender.date
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: date) + calendar.component(.hour, from: date) * 60
+        self.quizTimerSeconds = Double(minutes * 60)
         print("Total de minutos: \(minutes)")
     }
     
