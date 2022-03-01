@@ -18,13 +18,25 @@ class ConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let userTime = userInfo.double(forKey: "time")
         if userTime > 0.0 {
             quizTimerSeconds = userTime
         }
-        pickerQuizTimer.addTarget(self, action: #selector(timerChanger), for: .valueChanged)
 
+    }
+    
+    @IBAction func pickerTimeDidBegin(_ sender: UIDatePicker, forEvent event: UIEvent) {
+        print("changer........Begin")
+    }
+    @IBAction func datePickerEditngChanged(_ sender: UIDatePicker) {
+        print("changer........")
+    }
+    
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        let date = sender.date
+        let calendar = Calendar.current
+        let minutes = calendar.component(.minute, from: date) + calendar.component(.hour, from: date) * 60
+        print("Total de minutos: \(minutes)")
     }
     
     @IBAction func backToHome(_ sender: Any) {
@@ -41,10 +53,6 @@ class ConfigViewController: UIViewController {
         showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {
             self.deleteDataBase()
         }
-    }
-    
-    @objc func timerChanger(sender: UIDatePicker) {
-        print(sender.date)
     }
     
     func deleteDataBase() {

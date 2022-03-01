@@ -73,9 +73,14 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro0-Mp-nW5">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro0-Mp-nW5">
                                 <rect key="frame" x="24" y="189" width="366" height="216"/>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
+                                <connections>
+                                    <action selector="datePickerEditngChanged:" destination="oWH-fd-AfY" eventType="valueChanged" id="Gdb-i7-SGg"/>
+                                    <action selector="datePickerValueChanged:" destination="oWH-fd-AfY" eventType="valueChanged" id="ElM-Lg-U1A"/>
+                                    <action selector="pickerTimeDidBegin:forEvent:" destination="oWH-fd-AfY" eventType="editingDidBegin" id="nBl-NH-k4O"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco de dados:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1b-P5-cW8">
                                 <rect key="frame" x="24" y="455" width="366" height="21"/>
@@ -181,7 +186,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="pickerQuizTimer" destination="ro0-Mp-nW5" id="GuR-aO-wJj"/>
+                        <outlet property="pickerQuizTimer" destination="ro0-Mp-nW5" id="FQO-oU-5iL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pB-2N-gDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
