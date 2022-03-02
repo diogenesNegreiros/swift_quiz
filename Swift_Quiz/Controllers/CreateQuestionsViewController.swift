@@ -22,6 +22,10 @@ class CreateQuestionsViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     var myQuestion: Question!
     
+    @IBAction func backHome(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func addButtonAction(_ sender: Any) {
         myQuestion = Question(context: context)
         myQuestion.statement = question.text
