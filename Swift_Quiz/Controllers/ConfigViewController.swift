@@ -11,9 +11,12 @@ import CoreData
 class ConfigViewController: UIViewController {
     
     @IBOutlet weak var pickerQuizTimer: UIDatePicker!
+    @IBOutlet weak var pickerNumberOfQuestions: UIPickerView!
+    @IBOutlet weak var numberOfQuestions: UITextField!
     
     var quizTimerSeconds: Double = 60.0
     var userInfo = UserDefaults.standard
+    var numberQuestionsOptions: [String] = ["1","2", "3","4"]
     
     
     override func viewDidLoad() {
@@ -22,13 +25,16 @@ class ConfigViewController: UIViewController {
         if userTime > 0.0 {
             quizTimerSeconds = userTime
         }
+        
+        
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.pickerQuizTimer.countDownDuration = TimeInterval()
-        }
+//        DispatchQueue.main.async {
+//            self.pickerQuizTimer.countDownDuration = TimeInterval()
+//            self.pickerQuizTimer.backgroundColor = .green
+//        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -87,5 +93,21 @@ extension ConfigViewController {
     class func loadStoryboard() -> ConfigViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigViewController") as! ConfigViewController
     }
+}
+
+extension ConfigViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 4
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numberQuestionsOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return numberQuestionsOptions[row]
+    }
+    
 }
 
