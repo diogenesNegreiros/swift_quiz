@@ -92,26 +92,29 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempo para realizar o Quiz:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbK-w2-Ch7">
-                                <rect key="frame" x="24" y="144" width="366" height="21"/>
+                                <rect key="frame" x="24" y="164" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="60" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro0-Mp-nW5">
-                                <rect key="frame" x="24" y="189" width="366" height="216"/>
+                                <rect key="frame" x="24" y="201" width="366" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="ApH-J6-xSB"/>
+                                </constraints>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
                                 <connections>
                                     <action selector="datePickerValueChanged:" destination="oWH-fd-AfY" eventType="valueChanged" id="ExL-8R-QEW"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco de dados:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1b-P5-cW8">
-                                <rect key="frame" x="24" y="455" width="366" height="21"/>
+                                <rect key="frame" x="24" y="552" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCj-CN-2Sr">
-                                <rect key="frame" x="24" y="574" width="366" height="50"/>
+                                <rect key="frame" x="24" y="671" width="366" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="J6v-mD-rm8"/>
                                 </constraints>
@@ -135,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sm6-C5-eys">
-                                <rect key="frame" x="24" y="500" width="366" height="50"/>
+                                <rect key="frame" x="24" y="597" width="366" height="50"/>
                                 <color key="backgroundColor" red="0.25311643119999999" green="0.47518161040000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U3x-TP-wRU"/>
@@ -157,25 +160,43 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD4-fM-KxY">
-                                <rect key="frame" x="25" y="429" width="365" height="2"/>
+                                <rect key="frame" x="25" y="526" width="365" height="2"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="FPM-Lu-BlP"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantidade de perguntas para o teste:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K62-ea-QgX">
+                                <rect key="frame" x="24" y="345" width="366" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvu-xE-Ndf">
+                                <rect key="frame" x="24" y="382" width="366" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="9CY-YM-PT4"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fRy-Ny-uGh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VCj-CN-2Sr" firstAttribute="top" secondItem="sm6-C5-eys" secondAttribute="bottom" constant="24" id="1eo-fM-7O7"/>
+                            <constraint firstItem="dvu-xE-Ndf" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="59j-9d-4a5"/>
+                            <constraint firstItem="K62-ea-QgX" firstAttribute="top" secondItem="ro0-Mp-nW5" secondAttribute="bottom" constant="24" id="7rk-nt-hOk"/>
+                            <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="K62-ea-QgX" secondAttribute="trailing" constant="24" id="C0X-Ps-DJG"/>
                             <constraint firstItem="VCj-CN-2Sr" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="Erv-Es-ZGN"/>
+                            <constraint firstItem="dvu-xE-Ndf" firstAttribute="top" secondItem="K62-ea-QgX" secondAttribute="bottom" constant="16" id="GNZ-A8-CTA"/>
                             <constraint firstItem="m1b-P5-cW8" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="GPh-iq-6Nf"/>
-                            <constraint firstItem="ro0-Mp-nW5" firstAttribute="top" secondItem="GbK-w2-Ch7" secondAttribute="bottom" constant="24" id="GYA-lz-4GF"/>
+                            <constraint firstItem="ro0-Mp-nW5" firstAttribute="top" secondItem="GbK-w2-Ch7" secondAttribute="bottom" constant="16" id="GYA-lz-4GF"/>
                             <constraint firstItem="ro0-Mp-nW5" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="Hn4-yP-2IO"/>
-                            <constraint firstItem="GbK-w2-Ch7" firstAttribute="top" secondItem="fRy-Ny-uGh" secondAttribute="top" constant="100" id="Jks-mN-Rv4"/>
+                            <constraint firstItem="GbK-w2-Ch7" firstAttribute="top" secondItem="fRy-Ny-uGh" secondAttribute="top" constant="120" id="Jks-mN-Rv4"/>
                             <constraint firstItem="sm6-C5-eys" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="NIc-Or-3VK"/>
                             <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="sm6-C5-eys" secondAttribute="trailing" constant="24" id="O7A-SR-KbE"/>
                             <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="GbK-w2-Ch7" secondAttribute="trailing" constant="24" id="Rah-vw-bQg"/>
+                            <constraint firstItem="K62-ea-QgX" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="YXU-6v-ceE"/>
+                            <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="dvu-xE-Ndf" secondAttribute="trailing" constant="24" id="Yi7-6x-EMl"/>
                             <constraint firstItem="GbK-w2-Ch7" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="24" id="ZHc-lP-usb"/>
                             <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="VCj-CN-2Sr" secondAttribute="trailing" constant="24" id="gEV-8A-eu8"/>
                             <constraint firstItem="sm6-C5-eys" firstAttribute="top" secondItem="m1b-P5-cW8" secondAttribute="bottom" constant="24" id="ij1-H2-1lC"/>
@@ -183,10 +204,10 @@
                             <constraint firstItem="qX7-if-ear" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" id="mvQ-rG-VEi"/>
                             <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="m1b-P5-cW8" secondAttribute="trailing" constant="24" id="o6K-Cc-tfZ"/>
                             <constraint firstItem="m1b-P5-cW8" firstAttribute="top" secondItem="QD4-fM-KxY" secondAttribute="bottom" constant="24" id="oyw-sg-pq0"/>
+                            <constraint firstItem="QD4-fM-KxY" firstAttribute="top" secondItem="dvu-xE-Ndf" secondAttribute="bottom" constant="24" id="q50-Pa-hy3"/>
                             <constraint firstItem="qX7-if-ear" firstAttribute="top" secondItem="fRy-Ny-uGh" secondAttribute="top" id="rAu-zg-KMC"/>
                             <constraint firstItem="qX7-if-ear" firstAttribute="trailing" secondItem="fRy-Ny-uGh" secondAttribute="trailing" id="tJG-gp-DYs"/>
                             <constraint firstItem="QD4-fM-KxY" firstAttribute="leading" secondItem="fRy-Ny-uGh" secondAttribute="leading" constant="25" id="tft-kZ-NQU"/>
-                            <constraint firstItem="QD4-fM-KxY" firstAttribute="top" secondItem="ro0-Mp-nW5" secondAttribute="bottom" constant="24" id="uKv-xf-EIF"/>
                             <constraint firstItem="fRy-Ny-uGh" firstAttribute="trailing" secondItem="ro0-Mp-nW5" secondAttribute="trailing" constant="24" id="wnt-YA-2HL"/>
                         </constraints>
                     </view>
@@ -199,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pB-2N-gDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="362"/>
+            <point key="canvasLocation" x="2086.9565217391305" y="361.60714285714283"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="7FY-nK-d8T">
@@ -498,19 +519,30 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar pergunta:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSI-8f-EOs">
                                                 <rect key="frame" x="20" y="15" width="374" height="24"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8nc-tS-0TO">
                                                 <rect key="frame" x="20" y="47" width="374" height="117.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="117.5" id="p6w-vr-QIl"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="oXH-sz-2Gk"/>
                                                 </connections>
@@ -527,13 +559,29 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="resposta 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-yh-1wj">
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="resposta 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qBb-yh-1wj">
                                                                 <rect key="frame" x="22" y="0.0" width="352" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="D7C-GP-Kgn"/>
                                                                 </constraints>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="backGroundColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="2DO-jf-nv1"/>
                                                                 </connections>
@@ -549,13 +597,39 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="resposta 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-dx-L39">
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="resposta 2" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUI-dx-L39">
                                                                 <rect key="frame" x="24.5" y="0.0" width="349.5" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="kJz-FV-lKM"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <nil key="textColor"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" systemColor="systemIndigoColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="28"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                        <size key="value" width="1" height="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                        <color key="value" systemColor="systemIndigoColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="e7G-kC-BUA"/>
                                                                 </connections>
@@ -578,6 +652,17 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="dol-r9-8oi"/>
                                                                 </connections>
@@ -600,6 +685,17 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="KAs-Sz-IDC"/>
                                                                 </connections>
@@ -622,6 +718,17 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="16"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="24X-Dz-GZB" id="3I6-fR-3al"/>
                                                                 </connections>
@@ -798,6 +905,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
