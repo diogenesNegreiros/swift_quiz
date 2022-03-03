@@ -20,7 +20,7 @@ class QuizViewController: UIViewController {
     var timeMinutesRemaining: Int = 2 {
         didSet {
             DispatchQueue.main.async {
-                self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):\(self.timeSecondsRemaining)"
+                self.timerLabel.text = "tempo restante2: \(self.timeMinutesRemaining):\(self.timeSecondsRemaining)"
             }
             
         }
@@ -31,7 +31,8 @@ class QuizViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 let str = String(format: "%02d", self.timeSecondsRemaining)
-                self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):\(str)"
+                self.timerLabel.text = "tempo restante1: \(self.timeMinutesRemaining):\(str)"
+                let s = ""
             }
             
         }
@@ -55,9 +56,10 @@ class QuizViewController: UIViewController {
         
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
+        self.timeSecondsRemaining = UserDefaults.standard.integer(forKey: "timeSeconds")
         
         DispatchQueue.main.async {
-            self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
+            self.timerLabel.text = "tempo restante0: \(self.timeMinutesRemaining):00"
         }
         
         quizManager = QuizManager()

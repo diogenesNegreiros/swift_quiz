@@ -46,8 +46,8 @@ class ConfigViewController: UIViewController {
             pickerQuizTimer.setDate(dateUser as! Date, animated: true)
         }
         
-        
-        
+        let numQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+            self.numberOfQuestions.text = "\(numQuestions)"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
