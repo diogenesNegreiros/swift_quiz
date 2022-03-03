@@ -376,7 +376,7 @@
                     <connections>
                         <outlet property="endButton" destination="1eQ-g2-yLY" id="Wl4-yR-BQs"/>
                         <outlet property="labelQuestion" destination="kAP-ty-kWP" id="Gh0-ds-z1o"/>
-                        <outlet property="timerLabel" destination="Hwb-mV-hwX" id="eNu-id-Wkz"/>
+                        <outlet property="timerLabel" destination="Hwb-mV-hwX" id="ZjA-0f-CEI"/>
                         <outlet property="viewBackgroundTimer" destination="zMH-wK-ZGx" id="gJl-nW-pYt"/>
                         <outlet property="viewOptions" destination="Skd-2N-v4x" id="uqK-gS-SYQ"/>
                         <outlet property="viewTimer" destination="M95-pf-vcx" id="pmv-vn-J3j"/>
