@@ -17,10 +17,10 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var viewOptions: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     
-    var timeMinutesRemaining: Int = 2 {
+    var timeMinutesRemaining: Int = 1 {
         didSet {
             DispatchQueue.main.async {
-                self.timerLabel.text = "tempo restante2: \(self.timeMinutesRemaining):\(self.timeSecondsRemaining)"
+                self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):\(self.timeSecondsRemaining)"
             }
             
         }
@@ -31,15 +31,14 @@ class QuizViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 let str = String(format: "%02d", self.timeSecondsRemaining)
-                self.timerLabel.text = "\(self.timeMinutesRemaining):\(str)"
-                let s = ""
+                self.timerLabel.text = "tempo restante:  \(self.timeMinutesRemaining):\(str)"
             }
             
         }
     }
     var timerSeconds: Timer!
     
-    var allTimeInSeconds: Double = 120.0
+    var allTimeInSeconds: Double = 60.0
     var totalNumberChosen = 0
  
     var quizManager: QuizManager!
@@ -60,7 +59,7 @@ class QuizViewController: UIViewController {
 //        self.timeSecondsRemaining = UserDefaults.standard.integer(forKey: "timeSeconds")
         
         DispatchQueue.main.async {
-            self.timerLabel.text = "tempo restante0: \(self.timeMinutesRemaining):00"
+            self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
         }
         
         quizManager = QuizManager()
@@ -71,10 +70,6 @@ class QuizViewController: UIViewController {
             hideViews(isHide: false)
             self.viewTimer.backgroundColor = .blue
             UIView.animate(withDuration: allTimeInSeconds, delay: 0, options: .curveLinear) {
-                //            DispatchQueue.main.asyncAfter(deadline: .now() + self.time - 10.0) {
-                //                self.viewTimer.backgroundColor = .red
-                //            }
-                
                 self.timeMinutesRemaining -= 1
                 self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
                 self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
