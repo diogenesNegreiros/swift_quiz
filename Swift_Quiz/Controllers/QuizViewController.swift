@@ -39,6 +39,7 @@ class QuizViewController: UIViewController {
     var timerSeconds: Timer!
     
     var time: Double = 120.0
+    var totalNumberChosen = 0
  
     var quizManager: QuizManager!
     
@@ -52,6 +53,9 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+        self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
+        
         DispatchQueue.main.async {
             self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
         }
@@ -60,8 +64,6 @@ class QuizViewController: UIViewController {
         viewTimer.frame.size.width = view.frame.size.width
         
         if quizManager.totalquizesElements > 0 {
-
-            
             
             hideViews(isHide: false)
             self.viewTimer.backgroundColor = .blue
@@ -139,7 +141,7 @@ class QuizViewController: UIViewController {
     
     func getNewQuiz() {
         
-        if quizManager.totalquizesElements == 0 {
+        if quizManager.totalquizesElements == quizManager.totalQuizesInDataBase - totalNumberChosen  {
             performSegue(withIdentifier: "resultSegue", sender: nil)
         }else{
             quizManager.refreshQuiz()

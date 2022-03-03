@@ -11,6 +11,7 @@ import CoreData
 
 class QuizManager {
     var quizes: [Question] = []
+    var totalQuizesInDataBase: Int = 0
     
     private var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -78,6 +79,7 @@ class QuizManager {
             
             if let myQuizes = fetchedResultController.fetchedObjects {
                 quizes = myQuizes
+                self.totalQuizesInDataBase = myQuizes.count
             }else {
                 quiz = Question(context: self.context)
                 quiz.statement = "Qual o nome desse App de Perguntas e respostas?"

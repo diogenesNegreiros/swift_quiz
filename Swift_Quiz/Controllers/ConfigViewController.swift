@@ -15,18 +15,24 @@ class ConfigViewController: UIViewController {
     @IBOutlet weak var numberOfQuestions: UITextField!
     
     var quizTimerSeconds: Double = 60.0
+    var allQuizTimerMinutes: Int = 0
     var userInfo = UserDefaults.standard
-    var numberQuestionsOptions: [String] = ["1","2", "3","4"]
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userTime = userInfo.double(forKey: "time")
-        if userTime > 0.0 {
-            quizTimerSeconds = userTime
+        let userTimeSec = userInfo.double(forKey: "timeSeconds")
+        if userTimeSec > 0.0 {
+            quizTimerSeconds = userTimeSec
         }
         
+        let userTimeMin = userInfo.integer(forKey: "timeMinutes")
+        if userTimeMin > 0 {
+            allQuizTimerMinutes = userTimeMin
+        }
         
+        setupToolbar()
 
     }
     
@@ -35,10 +41,20 @@ class ConfigViewController: UIViewController {
 //            self.pickerQuizTimer.countDownDuration = TimeInterval()
 //            self.pickerQuizTimer.backgroundColor = .green
 //        }
+        
+        if let dateUser = UserDefaults.standard.value(forKey: "date") {
+            pickerQuizTimer.setDate(dateUser as! Date, animated: true)
+        }
+        
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        userInfo.set(quizTimerSeconds, forKey: "time")
+        userInfo.set(quizTimerSeconds, forKey: "timeSeconds")
+        userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
+        userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
+        userInfo.set(pickerQuizTimer.date, forKey: "date")
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -46,6 +62,7 @@ class ConfigViewController: UIViewController {
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: date) + calendar.component(.hour, from: date) * 60
         self.quizTimerSeconds = Double(minutes * 60)
+        self.allQuizTimerMinutes = minutes
         print("Total de minutos: \(minutes)")
     }
     
@@ -63,6 +80,19 @@ class ConfigViewController: UIViewController {
         showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {
             self.deleteDataBase()
         }
+    }
+    
+    func setupToolbar(){
+        let bar = UIToolbar()
+        let doneBtn = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(dismissMyKeyboard))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        bar.items = [flexSpace, flexSpace, doneBtn]
+        bar.sizeToFit()
+        numberOfQuestions.inputAccessoryView = bar
+    }
+    
+    @objc func dismissMyKeyboard() {
+        self.view.endEditing(true)
     }
     
     func deleteDataBase() {
@@ -85,6 +115,7 @@ class ConfigViewController: UIViewController {
         persistentContainer.loadPersistentStores {
             (store, error) in
             // Handle errors
+            print("Erro no Core Data: \(String(describing: error?.localizedDescription))")
         }
     }
 }
@@ -95,19 +126,7 @@ extension ConfigViewController {
     }
 }
 
-extension ConfigViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 4
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numberQuestionsOptions.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return numberQuestionsOptions[row]
-    }
-    
-}
+
+
+
 
