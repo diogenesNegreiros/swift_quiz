@@ -32,7 +32,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 </variation>
                                 <connections>
-                                    <action selector="goToConfigAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bsi-oJ-y4B"/>
+                                    <action selector="goToConfigAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7XH-8r-aWv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0Z-uC-qHL">
@@ -46,7 +46,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 </variation>
                                 <connections>
-                                    <action selector="startQuizAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="62W-34-aqJ"/>
+                                    <action selector="startQuizAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIr-fT-RQ4"/>
                                 </connections>
                             </button>
                         </subviews>

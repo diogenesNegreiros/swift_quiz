@@ -6,7 +6,7 @@
         <attribute name="answer3" optional="YES" attributeType="String"/>
         <attribute name="answer4" optional="YES" attributeType="String"/>
         <attribute name="correctIndex" optional="YES" attributeType="String"/>
-        <attribute name="statement" optional="YES" attributeType="String"/>
+        <attribute name="statement" optional="YES" attributeType="String" defaultValueString="&quot;&quot;"/>
     </entity>
     <elements>
         <element name="Question" positionX="-63" positionY="-18" width="128" height="119"/>

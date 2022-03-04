@@ -22,12 +22,10 @@ class QuizManager {
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
     
-    var question: String {
-        return quiz.statement ?? "????"
-    }
+    var question: String? = ""  
     
     var options: [String?] {
-        return [quiz.answer1, quiz.answer2, quiz.answer3, quiz.answer4]
+        return [quiz.answer1 , quiz.answer2, quiz.answer3, quiz.answer4]
     }
     
     var totalAnswers: Int {
@@ -78,18 +76,13 @@ class QuizManager {
             try fetchedResultController.performFetch()
             
             if let myQuizes = fetchedResultController.fetchedObjects {
-                quizes = myQuizes
                 self.totalQuizesInDataBase = myQuizes.count
-            }else {
-                quiz = Question(context: self.context)
-                quiz.statement = "Qual o nome desse App de Perguntas e respostas?"
-                quiz.answer1 = "Quiz Manager"
-                quiz.answer2 = "Quiz Brazuca"
-                quiz.answer3 = "Study Quiz"
-                quiz.answer4 = "Swift Quiz"
-                quiz.correctIndex = "4"
+                if myQuizes.count > 0 {
+                    quizes = myQuizes
+                }
                 
-                self.quizes.append(self.quiz)
+            }else {
+              quizes = [Question]()
             }
         }catch {
             print(error.localizedDescription)

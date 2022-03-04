@@ -28,13 +28,13 @@ class CreateQuestionsViewController: UIViewController {
     
     @IBAction func addButtonAction(_ sender: Any) {
         myQuestion = Question(context: context)
-        myQuestion.statement = question.text
-        myQuestion.answer1 = answer1.text
-        myQuestion.answer2 = answer2.text
-        myQuestion.answer3 = answer3.text
-        myQuestion.answer4 = answer4.text
+        myQuestion.statement = question.text ?? ""
+        myQuestion.answer1 = answer1.text ?? ""
+        myQuestion.answer2 = answer2.text ?? ""
+        myQuestion.answer3 = answer3.text ?? ""
+        myQuestion.answer4 = answer4.text ?? ""
         //        myQuestion.answer = correctAnswer.text
-        myQuestion.correctIndex = correctAnswer.text
+        myQuestion.correctIndex = correctAnswer.text ?? "0"
         clearAllTexts()
         do {
             try context.save()

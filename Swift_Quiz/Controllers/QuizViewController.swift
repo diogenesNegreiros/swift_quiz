@@ -46,7 +46,7 @@ class QuizViewController: UIViewController {
     var timerSeconds: Timer!
     
     var allTimeInSeconds: Double = 60.0
-    var totalNumberChosen = 0
+    var totalNumberChosen = 1
  
     var quizManager: QuizManager!
     
@@ -59,6 +59,8 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
