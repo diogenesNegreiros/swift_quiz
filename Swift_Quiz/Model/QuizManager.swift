@@ -22,7 +22,9 @@ class QuizManager {
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
     
-    var question: String? = ""  
+    var question: String {
+        return quiz.statement ?? "????"
+    }
     
     var options: [String?] {
         return [quiz.answer1 , quiz.answer2, quiz.answer3, quiz.answer4]

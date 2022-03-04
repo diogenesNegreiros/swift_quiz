@@ -204,7 +204,7 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let str = "\(quizManager.question)\n"
+        let str = "\(quizManager.question ?? "")\n"
         return str
     }
     
