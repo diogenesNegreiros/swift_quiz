@@ -10,13 +10,19 @@ import CoreData
 
 class QuizViewController: UIViewController {
     @IBOutlet weak var viewTimer: UIView!
-    @IBOutlet weak var labelQuestion: UILabel!
-    @IBOutlet var buttonAnswers: [UIButton]!
+//    @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var viewBackgroundTimer: UIView!
     @IBOutlet weak var endButton: UIButton!
-    @IBOutlet weak var viewOptions: UIView!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var tableViewOptions: UITableView!
     
+    var currentQuestions:[String?] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableViewOptions.reloadData()
+            }
+        }
+    }
     
     var timeMinutesRemaining: Int = 1 {
         didSet {
@@ -128,10 +134,10 @@ class QuizViewController: UIViewController {
     
     func hideViews(isHide: Bool) {
         viewTimer.isHidden = isHide
-        labelQuestion.isHidden = isHide
+//        labelQuestion.isHidden = isHide
         viewBackgroundTimer.isHidden = isHide
         endButton.isHidden = isHide
-        viewOptions.isHidden = isHide
+        tableViewOptions.isHidden = isHide
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -147,26 +153,62 @@ class QuizViewController: UIViewController {
             performSegue(withIdentifier: "resultSegue", sender: nil)
         }else{
             quizManager.refreshQuiz()
-            labelQuestion.text = quizManager.question
+//            labelQuestion.text = quizManager.question
+//            tableViewOptions.headerView(forSection: 1)?.largeContentTitle = quizManager.question
+//            var newQuestion = quizManager.options
+//            newQuestion.insert(quizManager.question, at: 0)
             
-            for i in 0..<quizManager.options.count {
-                let option = quizManager.options[i]
-                let button = buttonAnswers[i]
-                button.setTitle(option, for: .normal)
-            }
+            self.currentQuestions = quizManager.options
+            
+//            for i in 0..<quizManager.options.count {
+//                let option = quizManager.options[i]
+//                let button = buttonAnswers[i]
+//                button.setTitle(option, for: .normal)
+//            }
         }
     }
     
-    @IBAction func selectAnswer(_ sender: UIButton) {
-        guard let index = buttonAnswers.firstIndex(of: sender) else {return}
-        quizManager.validateAnswer(index: index)
-        
-        if quizManager.totalquizesElements == 0 {
-            showResults()
-        }else{
-            getNewQuiz()
-        }
+//    @IBAction func selectAnswer(_ sender: UIButton) {
+//        guard let index = buttonAnswers.firstIndex(of: sender) else {return}
+//        quizManager.validateAnswer(index: index)
+//
+//        if quizManager.totalquizesElements == 0 {
+//            showResults()
+//        }else{
+//            getNewQuiz()
+//        }
+//    }
+}
+
+extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        currentQuestions.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel?.text = currentQuestions[indexPath.row]
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        quizManager.validateAnswer(index: indexPath.row)
+                if quizManager.totalquizesElements == 0 {
+                    showResults()
+                }else{
+                    getNewQuiz()
+                }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return quizManager.question
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        tableView.estimatedSectionHeaderHeight = 36;
+        return UITableView.automaticDimension
+    }
+    
 }
 
 extension QuizViewController {

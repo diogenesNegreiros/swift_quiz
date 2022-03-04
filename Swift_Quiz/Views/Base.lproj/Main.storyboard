@@ -283,91 +283,29 @@
                                     <constraint firstAttribute="trailing" secondItem="zMH-wK-ZGx" secondAttribute="trailing" id="kKa-gw-35v"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-ty-kWP">
-                                <rect key="frame" x="16" y="95" width="343" height="164"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
-                                </variation>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skd-2N-v4x">
-                                <rect key="frame" x="0.0" y="278" width="375" height="261"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2nl-8T-3Om">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="systemBlueColor"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectAnswer:" destination="gdR-u7-7V2" eventType="touchUpInside" id="FeA-3M-ZP2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="liM-sc-qnb">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="systemBlueColor"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectAnswer:" destination="gdR-u7-7V2" eventType="touchUpInside" id="fgw-kj-ZRa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="agI-pP-vHw">
-                                        <rect key="frame" x="0.0" y="131" width="375" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="systemBlueColor"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectAnswer:" destination="gdR-u7-7V2" eventType="touchUpInside" id="h3f-ue-6TM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-FC-EB4">
-                                        <rect key="frame" x="0.0" y="196" width="375" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="systemBlueColor"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="selectAnswer:" destination="gdR-u7-7V2" eventType="touchUpInside" id="Vjt-4j-rTf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eQ-g2-yLY">
-                                <rect key="frame" x="30" y="565" width="315" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AG9-tW-DS6">
+                                <rect key="frame" x="0.0" y="95" width="375" height="474"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WSD-CP-rag">
+                                        <rect key="frame" x="16" y="49.5" width="343" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WSD-CP-rag" id="rp9-Ga-xJa">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gdR-u7-7V2" id="zGm-vT-bjw"/>
+                                    <outlet property="delegate" destination="gdR-u7-7V2" id="hj3-IA-gk9"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eQ-g2-yLY">
+                                <rect key="frame" x="30" y="593" width="315" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sGw-AK-1UV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Finalizar quiz">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -389,22 +327,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="npt-Nn-G9y" firstAttribute="leading" secondItem="qKG-qA-ykj" secondAttribute="leading" id="Eqk-U9-hms"/>
+                            <constraint firstItem="eI3-c6-9qq" firstAttribute="bottom" secondItem="1eQ-g2-yLY" secondAttribute="bottom" constant="24" id="H23-KE-t0T"/>
+                            <constraint firstItem="1eQ-g2-yLY" firstAttribute="leading" secondItem="eI3-c6-9qq" secondAttribute="leading" constant="30" id="IMM-3s-nAE"/>
+                            <constraint firstItem="AG9-tW-DS6" firstAttribute="leading" secondItem="eI3-c6-9qq" secondAttribute="leading" id="KQs-Yx-ani"/>
+                            <constraint firstItem="1eQ-g2-yLY" firstAttribute="top" secondItem="AG9-tW-DS6" secondAttribute="bottom" constant="24" id="Mto-FE-xy4"/>
+                            <constraint firstItem="AG9-tW-DS6" firstAttribute="trailing" secondItem="eI3-c6-9qq" secondAttribute="trailing" id="fbK-ci-ExQ"/>
                             <constraint firstAttribute="trailing" secondItem="npt-Nn-G9y" secondAttribute="trailing" id="nJ8-uh-aUG"/>
                             <constraint firstItem="npt-Nn-G9y" firstAttribute="top" secondItem="eI3-c6-9qq" secondAttribute="top" constant="20" id="uRo-Gv-45G"/>
+                            <constraint firstItem="AG9-tW-DS6" firstAttribute="top" secondItem="npt-Nn-G9y" secondAttribute="bottom" constant="30" id="v3Y-ev-862"/>
+                            <constraint firstItem="eI3-c6-9qq" firstAttribute="trailing" secondItem="1eQ-g2-yLY" secondAttribute="trailing" constant="30" id="wvV-tF-r9n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Suv-ui-ycF"/>
                     <connections>
                         <outlet property="endButton" destination="1eQ-g2-yLY" id="Wl4-yR-BQs"/>
-                        <outlet property="labelQuestion" destination="kAP-ty-kWP" id="Gh0-ds-z1o"/>
+                        <outlet property="tableViewOptions" destination="AG9-tW-DS6" id="7X6-WM-jpt"/>
                         <outlet property="timerLabel" destination="Hwb-mV-hwX" id="ZjA-0f-CEI"/>
                         <outlet property="viewBackgroundTimer" destination="zMH-wK-ZGx" id="gJl-nW-pYt"/>
-                        <outlet property="viewOptions" destination="Skd-2N-v4x" id="uqK-gS-SYQ"/>
                         <outlet property="viewTimer" destination="M95-pf-vcx" id="pmv-vn-J3j"/>
-                        <outletCollection property="buttonAnswers" destination="2nl-8T-3Om" collectionClass="NSMutableArray" id="oJT-kI-RZu"/>
-                        <outletCollection property="buttonAnswers" destination="liM-sc-qnb" collectionClass="NSMutableArray" id="mne-4f-UCf"/>
-                        <outletCollection property="buttonAnswers" destination="agI-pP-vHw" collectionClass="NSMutableArray" id="0vB-ln-aRE"/>
-                        <outletCollection property="buttonAnswers" destination="eEE-FC-EB4" collectionClass="NSMutableArray" id="fAc-A9-DUO"/>
                         <segue destination="UBn-n0-7xH" kind="presentation" identifier="resultSegue" id="PFM-bW-Hyf"/>
                     </connections>
                 </viewController>
@@ -941,9 +881,6 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
