@@ -202,7 +202,8 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return quizManager.question
+        let str = "\(quizManager.question)\n"
+        return str
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
