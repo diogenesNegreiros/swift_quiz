@@ -17,6 +17,7 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var viewOptions: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     
+    
     var timeMinutesRemaining: Int = 1 {
         didSet {
             DispatchQueue.main.async {
@@ -69,10 +70,13 @@ class QuizViewController: UIViewController {
             
             hideViews(isHide: false)
             self.viewTimer.backgroundColor = .blue
+            
             UIView.animate(withDuration: allTimeInSeconds, delay: 0, options: .curveLinear) {
+                
                 self.timeMinutesRemaining -= 1
                 self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
                 self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
+                
 
                 self.viewTimer.backgroundColor = .red
                 self.viewTimer.frame.size.width = 0
