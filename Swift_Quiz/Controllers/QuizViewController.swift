@@ -46,7 +46,7 @@ class QuizViewController: UIViewController {
     
     var allTimeInSeconds: Double = 60.0
     var totalNumberChosen = 1
- 
+    
     var quizManager = QuizManager.shared
     
     override func viewDidLoad() {
@@ -59,12 +59,11 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         quizManager.loadAllQuizes()
-//        quizManager = QuizManager.shared
+        //        quizManager = QuizManager.shared
         
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
         self.allTimeInSeconds = Double(timeMinutesRemaining * 60)
-//        self.timeSecondsRemaining = UserDefaults.standard.integer(forKey: "timeSeconds")
         
         DispatchQueue.main.async {
             self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
@@ -84,7 +83,7 @@ class QuizViewController: UIViewController {
                 self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
                 self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
                 
-
+                
                 self.viewTimer.backgroundColor = .red
                 self.viewTimer.frame.size.width = 0
             } completion: { (success) in
@@ -135,7 +134,7 @@ class QuizViewController: UIViewController {
     
     func hideViews(isHide: Bool) {
         viewTimer.isHidden = isHide
-//        labelQuestion.isHidden = isHide
+        //        labelQuestion.isHidden = isHide
         viewBackgroundTimer.isHidden = isHide
         endButton.isHidden = isHide
         tableViewOptions.isHidden = isHide
@@ -154,31 +153,9 @@ class QuizViewController: UIViewController {
             performSegue(withIdentifier: "resultSegue", sender: nil)
         }else{
             quizManager.refreshQuiz()
-//            labelQuestion.text = quizManager.question
-//            tableViewOptions.headerView(forSection: 1)?.largeContentTitle = quizManager.question
-//            var newQuestion = quizManager.options
-//            newQuestion.insert(quizManager.question, at: 0)
-            
             self.currentQuestions = quizManager.options
-            
-//            for i in 0..<quizManager.options.count {
-//                let option = quizManager.options[i]
-//                let button = buttonAnswers[i]
-//                button.setTitle(option, for: .normal)
-//            }
         }
     }
-    
-//    @IBAction func selectAnswer(_ sender: UIButton) {
-//        guard let index = buttonAnswers.firstIndex(of: sender) else {return}
-//        quizManager.validateAnswer(index: index)
-//
-//        if quizManager.totalquizesElements == 0 {
-//            showResults()
-//        }else{
-//            getNewQuiz()
-//        }
-//    }
 }
 
 extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
@@ -195,11 +172,11 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         quizManager.validateAnswer(index: indexPath.row)
-                if quizManager.totalquizesElements == 0 {
-                    showResults()
-                }else{
-                    getNewQuiz()
-                }
+        if quizManager.totalquizesElements == 0 {
+            showResults()
+        }else{
+            getNewQuiz()
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

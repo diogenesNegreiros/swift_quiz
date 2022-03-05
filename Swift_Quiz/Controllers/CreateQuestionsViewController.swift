@@ -55,7 +55,6 @@ class CreateQuestionsViewController: UIViewController {
         print("Questão atual: \(String(describing: question.text))")
         
         myQuestion.answer4 = answer4.text ?? ""
-        //        myQuestion.answer = correctAnswer.text
         myQuestion.correctIndex = correctAnswer.text ?? "0"
         clearAllTexts()
         do {

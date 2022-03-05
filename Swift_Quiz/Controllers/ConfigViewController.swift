@@ -14,22 +14,13 @@ class ConfigViewController: UIViewController {
     @IBOutlet weak var pickerNumberOfQuestions: UIPickerView!
     @IBOutlet weak var numberOfQuestions: UITextField!
     
-//    var quizTimerSeconds: Double = 60.0
     var allQuizTimerMinutes: Int = 1
     var userInfo = UserDefaults.standard
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let userTimeSec = userInfo.double(forKey: "timeSeconds")
-//        if userTimeSec > 0.0 {
-//            quizTimerSeconds = userTimeSec
-//        }
         self.numberOfQuestions.text = "1"
-        
         setupToolbar()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +29,7 @@ class ConfigViewController: UIViewController {
         if userTimeMin > 0 {
             allQuizTimerMinutes = userTimeMin
         }
-
+        
         if let dateUser = UserDefaults.standard.value(forKey: "date") {
             pickerQuizTimer.setDate(dateUser as! Date, animated: true)
         }
@@ -47,11 +38,9 @@ class ConfigViewController: UIViewController {
         if numQuestions > 0 {
             self.numberOfQuestions.text = "\(numQuestions)"
         }
-            
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-//        userInfo.set(quizTimerSeconds, forKey: "timeSeconds")
         userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
         userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
         userInfo.set(pickerQuizTimer.date, forKey: "date")
@@ -61,7 +50,6 @@ class ConfigViewController: UIViewController {
         let date = sender.date
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: date) + calendar.component(.hour, from: date) * 60
-//        self.quizTimerSeconds = Double(minutes * 60)
         self.allQuizTimerMinutes = minutes
         print("Total de minutos: \(minutes)")
     }

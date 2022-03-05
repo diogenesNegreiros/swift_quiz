@@ -14,7 +14,6 @@ class QuizManager {
         let instance = QuizManager()
         instance.loadAllQuizes()
         instance.quiz = Question()
-        
         return instance
     }()
     
@@ -49,7 +48,7 @@ class QuizManager {
     var totalquizesElements: Int {
         return quizes.count
     }
-
+    
     func addNewQuiz(quiz: Question) {
         self.quizes.append(quiz)
     }
