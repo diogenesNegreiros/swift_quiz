@@ -10,7 +10,6 @@ import CoreData
 
 class QuizViewController: UIViewController {
     @IBOutlet weak var viewTimer: UIView!
-//    @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var viewBackgroundTimer: UIView!
     @IBOutlet weak var endButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
@@ -59,7 +58,7 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        quizManager.loadAllQuizes()
 //        quizManager = QuizManager.shared
         
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
