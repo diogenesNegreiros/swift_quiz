@@ -48,7 +48,7 @@ class QuizViewController: UIViewController {
     var allTimeInSeconds: Double = 60.0
     var totalNumberChosen = 1
  
-    var quizManager: QuizManager!
+    var quizManager = QuizManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+//        quizManager = QuizManager.shared
         
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
@@ -71,7 +71,7 @@ class QuizViewController: UIViewController {
             self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
         }
         
-        quizManager = QuizManager()
+        
         viewTimer.frame.size.width = view.frame.size.width
         
         if quizManager.totalquizesElements > 0 {

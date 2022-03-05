@@ -9,7 +9,21 @@ import Foundation
 import UIKit
 import CoreData
 
+//protocol QuizManagerDelegate: AnyObject {
+//    func showAlertError(msg: String)
+//    func startQuizGame()
+//}
+
 class QuizManager {
+    static var shared: QuizManager = {
+        let instance = QuizManager()
+        instance.loadAllQuizes()
+        instance.quiz = Question()
+        
+        return instance
+    }()
+    
+//    weak var delegate: QuizManagerDelegate?
     var quizes: [Question] = []
     var totalQuizesInDataBase: Int = 0
     
@@ -42,9 +56,9 @@ class QuizManager {
         return quizes.count
     }
     
-    init() {
-        loadAllQuizes()
-    }
+//    init() {
+//        loadAllQuizes()
+//    }
     
     func addNewQuiz(quiz: Question) {
         self.quizes.append(quiz)
@@ -66,8 +80,30 @@ class QuizManager {
         }
     }
     
+    func loadGetAllQuizes() ->[Question] {
+//        quizes = []
+//        context.reset()
+        
+        let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
+        let sortDescritor = NSSortDescriptor(key: "statement", ascending: true)
+        fetchRequest.sortDescriptors  = [sortDescritor]
+        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do{
+            try fetchedResultController.performFetch()
+            
+            if let myQuizes = fetchedResultController.fetchedObjects {
+               return myQuizes
+                
+            }
+        }catch {
+            print(error.localizedDescription)
+//            delegate?.showAlertError(msg: "Erro na recuperação dos dados do banco!")
+        }
+        return []
+    }
+    
     func loadAllQuizes() {
-        quizes = []
+//        quizes = []
         context.reset()
         
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
@@ -79,15 +115,20 @@ class QuizManager {
             
             if let myQuizes = fetchedResultController.fetchedObjects {
                 self.totalQuizesInDataBase = myQuizes.count
+                
                 if myQuizes.count > 0 {
                     quizes = myQuizes
+//                    delegate?.startQuizGame()
+                }else {
+//                    delegate?.showAlertError(msg: "Você não tem perguntas cadastradas!")
                 }
                 
             }else {
-              quizes = [Question]()
+//                delegate?.showAlertError(msg: "Erro na recuperação dos dados do banco!")
             }
         }catch {
             print(error.localizedDescription)
+//            delegate?.showAlertError(msg: "Erro na recuperação dos dados do banco!")
         }
     }
     

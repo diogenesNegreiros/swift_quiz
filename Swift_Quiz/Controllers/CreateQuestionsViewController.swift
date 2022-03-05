@@ -21,9 +21,28 @@ class CreateQuestionsViewController: UIViewController {
     @IBOutlet weak var startQuizButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     var myQuestion: Question!
+    var manager = QuizManager.shared
     
     @IBAction func backHome(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func startQuiz(_ sender: Any) {
+        let vc = QuizViewController.loadStoryboard()
+        if manager.quizes.count > 0  {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let alert = UIAlertController(
+                title: "Atenção",
+                message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
     
     @IBAction func addButtonAction(_ sender: Any) {
@@ -33,7 +52,7 @@ class CreateQuestionsViewController: UIViewController {
         myQuestion.answer2 = answer2.text ?? ""
         myQuestion.answer3 = answer3.text ?? ""
         
-        print("Questão atual: \(question.text)")
+        print("Questão atual: \(String(describing: question.text))")
         
         myQuestion.answer4 = answer4.text ?? ""
         //        myQuestion.answer = correctAnswer.text
@@ -41,6 +60,7 @@ class CreateQuestionsViewController: UIViewController {
         clearAllTexts()
         do {
             try context.save()
+            manager.loadAllQuizes()
         }catch{
             print(error.localizedDescription)
         }

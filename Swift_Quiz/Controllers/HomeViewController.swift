@@ -8,10 +8,28 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var manager = QuizManager.shared
+
 
     @IBAction func startQuizAction(_ sender: Any) {
-        let vc = QuizViewController.loadStoryboard()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if manager.quizes.count > 0 {
+                    let vc = QuizViewController.loadStoryboard()
+            vc.quizManager = manager
+                    navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let alert = UIAlertController(
+                title: "Atenção",
+                message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.navigationController?.popToRootViewController(animated: false)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+//        let vc = QuizViewController.loadStoryboard()
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func goToConfigAction(_ sender: Any) {
@@ -24,3 +42,24 @@ class HomeViewController: UIViewController {
     }
     
 }
+
+//extension HomeViewController: QuizManagerDelegate {
+//    func showAlertError(msg: String) {
+//        let alert = UIAlertController(
+//            title: "Atenção",
+//            message: msg,
+//            preferredStyle: .alert
+//        )
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+//            self.navigationController?.popToRootViewController(animated: false)
+//        }))
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//    
+//    func startQuizGame() {
+//                let vc = QuizViewController.loadStoryboard()
+//                navigationController?.pushViewController(vc, animated: true)
+//    }
+//    
+//    
+//}
