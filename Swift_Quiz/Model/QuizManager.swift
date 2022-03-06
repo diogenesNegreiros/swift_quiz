@@ -68,7 +68,7 @@ class QuizManager {
             quizes.remove(at: randomIndex)
         }
     }
-    
+    //(completion: @escaping(Bool, ErrorLoginAnonymous?, String?) -> Void) {
     func loadAllQuizes() {
         quizes = []
         _totalAnswers = 0

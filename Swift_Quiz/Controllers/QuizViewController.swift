@@ -68,7 +68,7 @@ class QuizViewController: UIViewController {
         self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
         self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
         self.allTimeInSeconds = Double(timeMinutesRemaining * 60)
-        timeSecondsRemaining = 00
+       
         
 //        DispatchQueue.main.async {
 //            self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
@@ -83,7 +83,7 @@ class QuizViewController: UIViewController {
             self.viewTimer.backgroundColor = .blue
             
             UIView.animate(withDuration: allTimeInSeconds, delay: 0, options: .curveLinear) {
-                
+                self.timeSecondsRemaining = 60
                 self.timeMinutesRemaining -= 1
                 self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
                 self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
