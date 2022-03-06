@@ -16,10 +16,12 @@ class ConfigViewController: UIViewController {
     
     var allQuizTimerMinutes: Int = 1
     var userInfo = UserDefaults.standard
+    var manager = QuizManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.numberOfQuestions.text = "1"
+        manager.loadAllQuizes()
+        self.numberOfQuestions.text = String(manager.quizes.count)
         setupToolbar()
     }
     
@@ -64,7 +66,6 @@ class ConfigViewController: UIViewController {
     }
     
     @IBAction func clearAnsersDataBase(_ sender: Any) {
-        
         showOptionAlert(title: "Atenção ‼️", subTitle: "Tem certeza que deseja excluir o banco de dados? \nTodas as perguntas cadastradas anteriormente serão excluídas!!") {
             self.deleteDataBase()
         }
@@ -111,6 +112,45 @@ class ConfigViewController: UIViewController {
 extension ConfigViewController {
     class func loadStoryboard() -> ConfigViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ConfigViewController") as! ConfigViewController
+    }
+}
+
+extension ConfigViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let maxElements = manager.quizes.count
+        let selectValue = textField.text ?? "0"
+        let selectIntValue = Int(selectValue) ?? 0
+        
+        if selectIntValue > maxElements {
+            let alert = UIAlertController(
+                title: "Atenção",
+                message: "O valor selecionado é maior que a quantidade de perguntas disponíveis no banco, escolha um valor de 1 a \(maxElements)!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                textField.text = "\(maxElements)"
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let maxElements = manager.quizes.count
+
+        
+        if textField.text == "" {
+            let alert = UIAlertController(
+                title: "Atenção",
+                message: "O campo de quantidade de perguntas deve ser preenchido com um valor válido de 1 a \(maxElements)!",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                textField.text = "\(maxElements)"
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

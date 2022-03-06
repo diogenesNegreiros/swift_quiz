@@ -319,7 +319,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="UBn-n0-7xH" kind="show" id="RsI-pw-gs2"/>
+                                    <action selector="endQuizbuttonAction:" destination="gdR-u7-7V2" eventType="touchUpInside" id="bYb-38-NnE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -861,9 +861,6 @@
             <point key="canvasLocation" x="2928.985507246377" y="190.84821428571428"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PFM-bW-Hyf"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="LaunchScreen" width="414" height="736"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

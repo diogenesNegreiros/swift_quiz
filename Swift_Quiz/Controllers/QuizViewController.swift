@@ -53,6 +53,10 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func endQuizbuttonAction(_ sender: Any) {
+        showResults()
+    }
+    
     @IBAction func backToHome(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -180,7 +184,7 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let str = "\(quizManager.question ?? "")\n"
+        let str = "\(quizManager.question )\n"
         return str
     }
     
