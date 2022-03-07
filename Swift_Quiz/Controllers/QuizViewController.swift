@@ -67,7 +67,7 @@ class QuizViewController: UIViewController {
         quizManager.loadAllQuizes { quizList, success in
             self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
             self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
-            self.allTimeInSeconds = Double(self.timeMinutesRemaining * 60)
+            self.allTimeInSeconds = Double(UserDefaults.standard.integer(forKey: "timeMinutes") * 60)
             
             self.viewTimer.frame.size.width = self.view.frame.size.width
             

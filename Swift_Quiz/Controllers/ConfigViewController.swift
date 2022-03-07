@@ -20,6 +20,7 @@ class ConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerQuizTimer.countDownDuration = TimeInterval()
         setupToolbar()
     }
     
@@ -67,6 +68,9 @@ class ConfigViewController: UIViewController {
         let minutes = calendar.component(.minute, from: date) + calendar.component(.hour, from: date) * 60
         self.allQuizTimerMinutes = minutes
         print("Total de minutos: \(minutes)")
+        userInfo.set(minutes, forKey: "timeMinutes")
+        print("Total de minutos: \(minutes)")
+        print("Total de allQuizTimerMinutes: \(allQuizTimerMinutes)")
     }
     
     @IBAction func backToHome(_ sender: Any) {
