@@ -20,36 +20,42 @@ class ConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.loadAllQuizes { quizList, success in
-            
-            if quizList.count == 0 {
-                self.numberOfQuestions.text = "1"
-            }else {
-                self.numberOfQuestions.text = String(quizList.count)
-            }
-            
-        }
         setupToolbar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        let userTimeMin = userInfo.integer(forKey: "timeMinutes")
-        if userTimeMin > 0 {
-            allQuizTimerMinutes = userTimeMin
+        manager.loadAllQuizes { quizList, success in
+            
+            let userTimeMin = self.userInfo.integer(forKey: "timeMinutes")
+            if userTimeMin > 0 {
+                self.allQuizTimerMinutes = userTimeMin
+            }
+            
+            if let dateUser = UserDefaults.standard.value(forKey: "date") {
+                self.pickerQuizTimer.setDate(dateUser as! Date, animated: true)
+            }
+            
+            let numQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+            if numQuestions > 0 {
+                self.numberOfQuestions.text = "\(numQuestions)"
+            }
+            
+            if quizList.count == 0 {
+                self.numberOfQuestions.text = "1"
+            }
+            
         }
-        
-        if let dateUser = UserDefaults.standard.value(forKey: "date") {
-            pickerQuizTimer.setDate(dateUser as! Date, animated: true)
-        }
-        
-        let numQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
-        if numQuestions > 0 {
-            self.numberOfQuestions.text = "\(numQuestions)"
-        }
+
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+//    override func viewDidDisappear(_ animated: Bool) {
+//        userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
+//        userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
+//        userInfo.set(pickerQuizTimer.date, forKey: "date")
+//    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
         userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
         userInfo.set(pickerQuizTimer.date, forKey: "date")
