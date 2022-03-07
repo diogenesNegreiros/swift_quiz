@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var manager = QuizManager.shared
+    var quizes:[Question] = []
     
     @IBAction func startQuizAction(_ sender: Any) {
         if manager.quizes.count > 0 {
@@ -40,7 +41,9 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        manager.loadAllQuizes()
+        manager.loadAllQuizes { quizList, success in
+            self.quizes = quizList 
+        }
     }
     
 }

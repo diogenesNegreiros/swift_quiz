@@ -20,8 +20,15 @@ class ConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.loadAllQuizes()
-        self.numberOfQuestions.text = String(manager.quizes.count)
+        manager.loadAllQuizes { quizList, success in
+            
+            if quizList.count == 0 {
+                self.numberOfQuestions.text = "1"
+            }else {
+                self.numberOfQuestions.text = String(quizList.count)
+            }
+            
+        }
         setupToolbar()
     }
     
@@ -80,6 +87,19 @@ class ConfigViewController: UIViewController {
         numberOfQuestions.inputAccessoryView = bar
     }
     
+    func showAlertClosure(body: String, action: @escaping ()->()) {
+        let alert = UIAlertController(
+            title: "Atenção",
+            message: body,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            action()
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @objc func dismissMyKeyboard() {
         self.view.endEditing(true)
     }
@@ -117,39 +137,45 @@ extension ConfigViewController {
 
 extension ConfigViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        let maxElements = manager.quizes.count
-        let selectValue = textField.text ?? "0"
-        let selectIntValue = Int(selectValue) ?? 0
         
-        if selectIntValue > maxElements {
-            let alert = UIAlertController(
-                title: "Atenção",
-                message: "O valor selecionado é maior que a quantidade de perguntas disponíveis no banco, escolha um valor de 1 a \(maxElements)!",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                textField.text = "\(maxElements)"
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+        let maxElements = manager.quizes.count
+        let selectValue = textField.text ?? "1"
+        let selectIntValue = Int(selectValue) ?? 1
+        
+        if selectIntValue > maxElements && maxElements > 1 {
+            showAlertClosure(body: "O valor selecionado é maior que a quantidade de perguntas disponíveis no banco!") {
+                if maxElements > 0 {
+                    textField.text = "\(maxElements)"
+                }else {
+                    textField.text = "1"
+                }
+            }
+            
+        }else if (selectIntValue == 0) {
+            showAlertClosure(body: "O valor selecionado é inválido, escolha um valor maior que zero!") {
+                textField.text = "1"
+            }
         }
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let maxElements = manager.quizes.count
-
+        let selectValue = textField.text ?? "1"
+        let selectIntValue = Int(selectValue) ?? 1
         
         if textField.text == "" {
-            let alert = UIAlertController(
-                title: "Atenção",
-                message: "O campo de quantidade de perguntas deve ser preenchido com um valor válido de 1 a \(maxElements)!",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                textField.text = "\(maxElements)"
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
+            showAlertClosure(body: "O campo de quantidade de perguntas deve ser preenchido com um valor válido!") {
+                if maxElements > 0 {
+                    textField.text = "\(maxElements)"
+                }else {
+                    textField.text = "1"
+                }
+            }
+        }else if (maxElements == 0 && selectIntValue > 0) {
+            showAlertClosure(body: "Você não tem perguntas cadastradas no banco, cadastre as perguntas e depois selecione a quantidade!") {
+                textField.text = "1"
+            }
         }
     }
 }

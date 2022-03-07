@@ -28,21 +28,28 @@ class CreateQuestionsViewController: UIViewController {
     }
     
     @IBAction func startQuiz(_ sender: Any) {
-        let vc = QuizViewController.loadStoryboard()
-        if manager.quizes.count > 0  {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else {
-            let alert = UIAlertController(
-                title: "Atenção",
-                message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.dismiss(animated: true, completion: nil)
-            }))
-            self.present(alert, animated: true, completion: nil)
-            
+        
+        manager.loadAllQuizes { quizList, success in
+            if success {
+                let vc = QuizViewController.loadStoryboard()
+                
+                if quizList.count > 0  {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else {
+                    let alert = UIAlertController(
+                        title: "Atenção",
+                        message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
+                        preferredStyle: .alert
+                    )
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+            }
         }
+        
     }
     
     @IBAction func addButtonAction(_ sender: Any) {
@@ -51,15 +58,14 @@ class CreateQuestionsViewController: UIViewController {
         myQuestion.answer1 = answer1.text ?? ""
         myQuestion.answer2 = answer2.text ?? ""
         myQuestion.answer3 = answer3.text ?? ""
-        
-        print("Questão atual: \(String(describing: question.text))")
-        
         myQuestion.answer4 = answer4.text ?? ""
         myQuestion.correctIndex = correctAnswer.text ?? "0"
         clearAllTexts()
         do {
             try context.save()
-            manager.loadAllQuizes()
+            manager.loadAllQuizes { quizList, success in
+                
+            }
         }catch{
             print(error.localizedDescription)
         }

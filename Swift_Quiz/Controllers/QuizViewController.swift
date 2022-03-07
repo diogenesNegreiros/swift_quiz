@@ -23,6 +23,8 @@ class QuizViewController: UIViewController {
         }
     }
     
+    var currentQuestionText = ""
+    
     var timeMinutesRemaining: Int = 1 {
         didSet {
             DispatchQueue.main.async {
@@ -62,51 +64,45 @@ class QuizViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        quizManager.loadAllQuizes()
-        //        quizManager = QuizManager.shared
-        
-        self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
-        self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
-        self.allTimeInSeconds = Double(timeMinutesRemaining * 60)
-       
-        
-//        DispatchQueue.main.async {
-//            self.timerLabel.text = "tempo restante: \(self.timeMinutesRemaining):00"
-//        }
-//
-        
-        viewTimer.frame.size.width = view.frame.size.width
-        
-        if quizManager.totalquizesElements > 0 {
+        quizManager.loadAllQuizes { quizList, success in
+            self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
+            self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
+            self.allTimeInSeconds = Double(self.timeMinutesRemaining * 60)
             
-            hideViews(isHide: false)
-            self.viewTimer.backgroundColor = .blue
+            self.viewTimer.frame.size.width = self.view.frame.size.width
             
-            UIView.animate(withDuration: allTimeInSeconds, delay: 0, options: .curveLinear) {
-                self.timeSecondsRemaining = 60
-                self.timeMinutesRemaining -= 1
-                self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
-                self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
+            if quizList.count > 0 {
                 
+                self.hideViews(isHide: false)
+                self.viewTimer.backgroundColor = .blue
                 
-                self.viewTimer.backgroundColor = .red
-                self.viewTimer.frame.size.width = 0
-            } completion: { (success) in
-                self.showResults()
+                UIView.animate(withDuration: self.allTimeInSeconds, delay: 0, options: .curveLinear) {
+                    self.timeSecondsRemaining = 60
+                    self.timeMinutesRemaining -= 1
+                    self.timerMinutes = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.self.stepMinutes), userInfo: nil, repeats: true)
+                    self.timerSeconds = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stepSeconds), userInfo: nil, repeats: true)
+                    
+                    
+                    self.viewTimer.backgroundColor = .red
+                    self.viewTimer.frame.size.width = 0
+                } completion: { (success) in
+                    self.showResults()
+                }
+                self.getNewQuiz()
+            }else {
+                self.hideViews(isHide: true)
+                let alert = UIAlertController(
+                    title: "Atenção",
+                    message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    self.navigationController?.popToRootViewController(animated: false)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
-            getNewQuiz()
-        }else {
-            hideViews(isHide: true)
-            let alert = UIAlertController(
-                title: "Atenção",
-                message: "Você não tem perguntas cadastradas, cadastre as perguntas para iniciar um Quiz!",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.navigationController?.popToRootViewController(animated: false)
-            }))
-            self.present(alert, animated: true, completion: nil)
         }
+
     }
     
     @objc func backHome() {
@@ -141,7 +137,6 @@ class QuizViewController: UIViewController {
     
     func hideViews(isHide: Bool) {
         viewTimer.isHidden = isHide
-        //        labelQuestion.isHidden = isHide
         viewBackgroundTimer.isHidden = isHide
         endButton.isHidden = isHide
         tableViewOptions.isHidden = isHide
@@ -186,10 +181,10 @@ extension QuizViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let str = "\(quizManager.question )\n"
-        return str
-    }
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            let str = "\(quizManager.question )\n"
+            return str
+        }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         tableView.estimatedSectionHeaderHeight = 36;

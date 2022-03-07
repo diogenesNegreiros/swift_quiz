@@ -12,7 +12,6 @@ import CoreData
 class QuizManager {
     static var shared: QuizManager = {
         let instance = QuizManager()
-        instance.loadAllQuizes()
         instance.quiz = Question()
         return instance
     }()
@@ -53,6 +52,12 @@ class QuizManager {
         self.quizes.append(quiz)
     }
     
+    private init() {
+        loadAllQuizes { quizList, success in
+            self.quizes = quizList 
+        }
+    }
+    
     func refreshQuiz(){
         if quizes.count != 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(quizes.count)))
@@ -69,25 +74,27 @@ class QuizManager {
         }
     }
     //(completion: @escaping(Bool, ErrorLoginAnonymous?, String?) -> Void) {
-    func loadAllQuizes() {
-        quizes = []
-        _totalAnswers = 0
-        _totalCorrectAnswers = 0
-        context.reset()
+    func loadAllQuizes(completion: @escaping([Question], Bool) -> Void) {
+        self.quizes = []
+        self._totalAnswers = 0
+        self._totalCorrectAnswers = 0
+        self.context.reset()
         
         let fetchRequest: NSFetchRequest<Question> = Question.fetchRequest()
         let sortDescritor = NSSortDescriptor(key: "statement", ascending: true)
         fetchRequest.sortDescriptors  = [sortDescritor]
-        fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
         do{
-            try fetchedResultController.performFetch()
+            try self.fetchedResultController.performFetch()
             
-            if let myQuizes = fetchedResultController.fetchedObjects {
+            if let myQuizes = self.fetchedResultController.fetchedObjects {
                 self.totalQuizesInDataBase = myQuizes.count
                 
                 if myQuizes.count > 0 {
                     quizes = myQuizes
+                    quiz = quizes[0]
                 }
+                completion(myQuizes, true)
             }
             
         }catch {
@@ -102,3 +109,4 @@ class QuizManager {
         }
     }
 }
+
