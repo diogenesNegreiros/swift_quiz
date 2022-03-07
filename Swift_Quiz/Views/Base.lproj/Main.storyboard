@@ -800,7 +800,7 @@
                                         <viewLayoutGuide key="frameLayoutGuide" id="S9m-qH-MQY"/>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58039215686274503" green="0.792156862745098" blue="1" alpha="0.19878533975967508" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="4Wv-0R-akC" firstAttribute="leading" secondItem="gvL-0L-BeP" secondAttribute="leading" constant="20" id="9zC-HL-hgD"/>
                                     <constraint firstItem="4Wv-0R-akC" firstAttribute="centerY" secondItem="gvL-0L-BeP" secondAttribute="centerY" constant="52" id="TGl-3P-7gB"/>
@@ -809,7 +809,7 @@
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMh-P5-CaZ">
-                                <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                                <rect key="frame" x="0.0" y="44.000000000000007" width="428" height="103.66666666666669"/>
                                 <color key="backgroundColor" red="0.53639000650000002" green="0.56642127040000001" blue="0.86306214329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <color key="barTintColor" red="0.56929641890000005" green="0.7034705336" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

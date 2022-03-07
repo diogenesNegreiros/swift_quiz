@@ -22,7 +22,19 @@ extension UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    //completion: @escaping (Result?, Bool, String?) -> Void
+   
+    func showAlertClosure(body: String, action: @escaping ()->()) {
+        let alert = UIAlertController(
+            title: "Atenção",
+            message: body,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            action()
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func showOptionAlert(title: String, subTitle: String, confirmClosure: @escaping (()->())) {
         let alert = UIAlertController(

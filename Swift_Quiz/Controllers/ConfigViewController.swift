@@ -56,13 +56,7 @@ class ConfigViewController: UIViewController {
         }
 
     }
-    
-//    override func viewDidDisappear(_ animated: Bool) {
-//        userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
-//        userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
-//        userInfo.set(pickerQuizTimer.date, forKey: "date")
-//    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         userInfo.set(allQuizTimerMinutes, forKey: "timeMinutes")
         userInfo.set(numberOfQuestions.text, forKey: "numberOfQuestions")
@@ -102,19 +96,6 @@ class ConfigViewController: UIViewController {
         bar.items = [flexSpace, flexSpace, doneBtn]
         bar.sizeToFit()
         numberOfQuestions.inputAccessoryView = bar
-    }
-    
-    func showAlertClosure(body: String, action: @escaping ()->()) {
-        let alert = UIAlertController(
-            title: "Atenção",
-            message: body,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            action()
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func dismissMyKeyboard() {

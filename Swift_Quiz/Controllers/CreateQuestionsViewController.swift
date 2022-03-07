@@ -131,6 +131,15 @@ extension CreateQuestionsViewController {
 extension CreateQuestionsViewController: UITextFieldDelegate, UITextViewDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        let selectValue = textField.text ?? ""
+        let selectIntValue = Int(selectValue) ?? 0
+        
+        if textField == correctAnswer && textField.text != "" {
+            if selectIntValue < 1 || selectIntValue > 4 {
+                textField.text = ""
+                showAlertClosure(body: "Escolha uma opção de 1 a 4", action: {})
+            }
+        }
         self.validateAddButton()
     }
     
