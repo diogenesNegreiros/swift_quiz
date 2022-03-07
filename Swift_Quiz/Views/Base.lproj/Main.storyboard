@@ -234,6 +234,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="labelDataBaseTitle" destination="m1b-P5-cW8" id="BJZ-Sc-ESl"/>
                         <outlet property="numberOfQuestions" destination="iIc-Je-gbp" id="ojT-eV-nKs"/>
                         <outlet property="pickerQuizTimer" destination="ro0-Mp-nW5" id="79t-KI-ZtD"/>
                     </connections>

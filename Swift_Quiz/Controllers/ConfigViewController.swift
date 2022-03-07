@@ -10,6 +10,7 @@ import CoreData
 
 class ConfigViewController: UIViewController {
     
+    @IBOutlet weak var labelDataBaseTitle: UILabel!
     @IBOutlet weak var pickerQuizTimer: UIDatePicker!
     @IBOutlet weak var pickerNumberOfQuestions: UIPickerView!
     @IBOutlet weak var numberOfQuestions: UITextField!
@@ -17,6 +18,7 @@ class ConfigViewController: UIViewController {
     var allQuizTimerMinutes: Int = 1
     var userInfo = UserDefaults.standard
     var manager = QuizManager.shared
+    var quizes: [Question] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,13 @@ class ConfigViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        
+        
         manager.loadAllQuizes { quizList, success in
             
+            let count = quizList.count
+            self.labelDataBaseTitle.text = "Banco de dados com \(quizList.count) " + (count > 1 ? "perguntas:": "pergunta:")
+            self.quizes = quizList
             let userTimeMin = self.userInfo.integer(forKey: "timeMinutes")
             if userTimeMin > 0 {
                 self.allQuizTimerMinutes = userTimeMin
@@ -43,7 +50,7 @@ class ConfigViewController: UIViewController {
             }
             
             if quizList.count == 0 {
-                self.numberOfQuestions.text = "1"
+                self.numberOfQuestions.text = ""
             }
             
         }
@@ -148,11 +155,11 @@ extension ConfigViewController {
 extension ConfigViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        let maxElements = manager.quizes.count
+        let maxElements = quizes.count
         let selectValue = textField.text ?? "1"
         let selectIntValue = Int(selectValue) ?? 1
         
-        if selectIntValue > maxElements && maxElements > 1 {
+        if selectIntValue > maxElements && maxElements > 0 {
             showAlertClosure(body: "O valor selecionado é maior que a quantidade de perguntas disponíveis no banco!") {
                 if maxElements > 0 {
                     textField.text = "\(maxElements)"
@@ -170,7 +177,7 @@ extension ConfigViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let maxElements = manager.quizes.count
+        let maxElements = quizes.count
         let selectValue = textField.text ?? "1"
         let selectIntValue = Int(selectValue) ?? 1
         
@@ -182,9 +189,9 @@ extension ConfigViewController: UITextFieldDelegate {
                     textField.text = "1"
                 }
             }
-        }else if (maxElements == 0 && selectIntValue > 0) {
+        }else if (maxElements == 0 && selectIntValue > 0 ) {
             showAlertClosure(body: "Você não tem perguntas cadastradas no banco, cadastre as perguntas e depois selecione a quantidade!") {
-                textField.text = "1"
+                textField.text = ""
             }
         }
     }
