@@ -10,6 +10,7 @@
 		1615292927C970AF00FE73F1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615292827C970AF00FE73F1 /* UIViewExtension.swift */; };
 		16259C5727D00E6500925734 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16259C5627D00E6500925734 /* UITextFieldExtension.swift */; };
 		162F813A27A375E2008ECE9F /* CreateQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F813927A375E2008ECE9F /* CreateQuestionsViewController.swift */; };
+		16414A6027DCE45A00BD51FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16414A5F27DCE45A00BD51FB /* BaseViewController.swift */; };
 		164211D527CA3D6F00DD2983 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164211D427CA3D6F00DD2983 /* HomeViewController.swift */; };
 		164211DE27CA58E100DD2983 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164211DD27CA58E100DD2983 /* StringExtension.swift */; };
 		166412C827D190BC001B2CDD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166412C727D190BC001B2CDD /* UIImageViewExtension.swift */; };
@@ -51,6 +52,7 @@
 		1615292827C970AF00FE73F1 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		16259C5627D00E6500925734 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		162F813927A375E2008ECE9F /* CreateQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuestionsViewController.swift; sourceTree = "<group>"; };
+		16414A5F27DCE45A00BD51FB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		164211D427CA3D6F00DD2983 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		164211DD27CA58E100DD2983 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		166412C727D190BC001B2CDD /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				162F813927A375E2008ECE9F /* CreateQuestionsViewController.swift */,
 				16ADBAEF27C940300015D6A1 /* ConfigViewController.swift */,
 				164211D427CA3D6F00DD2983 /* HomeViewController.swift */,
+				16414A5F27DCE45A00BD51FB /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				16259C5727D00E6500925734 /* UITextFieldExtension.swift in Sources */,
 				994E91B7264F3F7000A41509 /* QuizViewController.swift in Sources */,
 				16ADBAF227C944940015D6A1 /* ViewControle+Alerts.swift in Sources */,
+				16414A6027DCE45A00BD51FB /* BaseViewController.swift in Sources */,
 				164211DE27CA58E100DD2983 /* StringExtension.swift in Sources */,
 				164211D527CA3D6F00DD2983 /* HomeViewController.swift in Sources */,
 			);

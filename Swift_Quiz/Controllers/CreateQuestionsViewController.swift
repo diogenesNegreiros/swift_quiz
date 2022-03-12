@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class CreateQuestionsViewController: UIViewController {
+class CreateQuestionsViewController: BaseViewController {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var question: UITextView!
