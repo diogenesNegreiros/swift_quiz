@@ -47,6 +47,8 @@ class ConfigViewController: UIViewController {
             let numQuestions = UserDefaults.standard.integer(forKey: "numberOfQuestions")
             if numQuestions > 0 {
                 self.numberOfQuestions.text = "\(numQuestions)"
+            }else {
+                self.numberOfQuestions.text = "1"
             }
             
             if quizList.count == 0 {

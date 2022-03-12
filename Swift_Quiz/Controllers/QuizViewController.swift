@@ -73,6 +73,11 @@ class QuizViewController: UIViewController {
             
             if quizList.count > 0 {
                 
+                if self.totalNumberChosen == 0 {
+                    self.totalNumberChosen = 1
+                    UserDefaults.standard.set("1", forKey: "numberOfQuestions")
+                }
+                
                 self.hideViews(isHide: false)
                 self.viewTimer.backgroundColor = .blue
                 

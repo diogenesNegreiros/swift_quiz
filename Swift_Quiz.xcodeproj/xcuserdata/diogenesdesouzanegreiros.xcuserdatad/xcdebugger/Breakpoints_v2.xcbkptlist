@@ -30,8 +30,8 @@
             filePath = "Swift_Quiz/Controllers/QuizViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,10 +94,10 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "datePickerValueChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "dismissMyKeyboard()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,10 +110,10 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "datePickerValueChanged(_:)"
-            landmarkType = "7">
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "setupToolbar()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,9 +142,9 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "datePickerValueChanged(_:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,9 +158,9 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "textFieldDidChangeSelection(_:)"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "textFieldDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -174,9 +174,9 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "textFieldDidChangeSelection(_:)"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "textFieldDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,10 +190,8 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "textFieldDidEndEditing(_:)"
-            landmarkType = "7">
+            startingLineNumber = "190"
+            endingLineNumber = "190">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -206,9 +204,57 @@
             filePath = "Swift_Quiz/Controllers/ConfigViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "textFieldDidChangeSelection(_:)"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D57A5DC0-0174-49FE-A5F5-79443EA87D80 - 2f3cf32cd65e1eee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift_Quiz.ConfigViewController.textFieldDidChangeSelection(__C.UITextField) -&gt; ()"
+                  moduleName = "Swift_Quiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogenesdesouzanegreiros/Documents/My%20IOS%20examples/swift_quiz/Swift_Quiz/Controllers/ConfigViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "203">
+               </Location>
+               <Location
+                  uuid = "D57A5DC0-0174-49FE-A5F5-79443EA87D80 - 2f3cf32cd65e1eee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift_Quiz.ConfigViewController.textFieldDidChangeSelection(__C.UITextField) -&gt; ()"
+                  moduleName = "Swift_Quiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/diogenesdesouzanegreiros/Documents/My%20IOS%20examples/swift_quiz/Swift_Quiz/Controllers/ConfigViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FCA2A44-AB3A-4371-8BA5-53EBE72653F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swift_Quiz/Controllers/QuizViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
