@@ -117,6 +117,8 @@ class ConfigViewController: UIViewController {
                     ofType: store.type,
                     options: nil
                 )
+                UserDefaults.standard.set(false, forKey: "wasPlayed")
+                numberOfQuestions.text = "0"
             }catch {
                 print(error.localizedDescription)
             }

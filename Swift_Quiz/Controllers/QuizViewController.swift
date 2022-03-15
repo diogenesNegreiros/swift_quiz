@@ -45,7 +45,7 @@ class QuizViewController: UIViewController {
         }
     }
     var timerSeconds: Timer!
-    
+    var wasPlayed: Bool?
     var allTimeInSeconds: Double = 60.0
     var totalNumberChosen = 1
     
@@ -53,6 +53,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.wasPlayed = UserDefaults.standard.bool(forKey: "wasPlayed")
     }
     
     @IBAction func endQuizbuttonAction(_ sender: Any) {
@@ -68,14 +69,15 @@ class QuizViewController: UIViewController {
             self.totalNumberChosen = UserDefaults.standard.integer(forKey: "numberOfQuestions")
             self.timeMinutesRemaining = UserDefaults.standard.integer(forKey: "timeMinutes")
             self.allTimeInSeconds = Double(UserDefaults.standard.integer(forKey: "timeMinutes") * 60)
-            
             self.viewTimer.frame.size.width = self.view.frame.size.width
             
             if quizList.count > 0 {
                 
-                if self.totalNumberChosen == 0 {
-                    self.totalNumberChosen = 1
-                    UserDefaults.standard.set("1", forKey: "numberOfQuestions")
+                if !(self.wasPlayed ?? false){
+                    let count = quizList.count
+                    UserDefaults.standard.set("\(count)", forKey: "numberOfQuestions")
+                    UserDefaults.standard.set(true, forKey: "wasPlayed")
+                    self.totalNumberChosen = count
                 }
                 
                 self.hideViews(isHide: false)

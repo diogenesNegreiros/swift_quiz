@@ -205,7 +205,7 @@ extension CreateQuestionsViewController {
             
             // Set the scroll view's content inset & scroll indicator to avoid the keyboard
             scrollView.contentInset.bottom = keyboardOverlap + 24.0
-            scrollView.scrollIndicatorInsets.bottom = keyboardOverlap + 24.0
+            scrollView.verticalScrollIndicatorInsets.bottom = keyboardOverlap + 24.0
             
             let duration = (durationValue as AnyObject).doubleValue
             let options = UIView.AnimationOptions(rawValue: UInt((curveValue as AnyObject).integerValue << 16))
