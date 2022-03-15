@@ -851,6 +851,7 @@
                         <outlet property="answer2" destination="YUI-dx-L39" id="XSg-EO-Klv"/>
                         <outlet property="answer3" destination="1lL-gF-bkf" id="it5-oQ-08j"/>
                         <outlet property="answer4" destination="FdI-iL-df1" id="x6f-Ry-elz"/>
+                        <outlet property="backgroundSV" destination="4Wv-0R-akC" id="fG5-79-qoC"/>
                         <outlet property="contentView" destination="N3x-YL-AaR" id="L8o-BD-hCG"/>
                         <outlet property="correctAnswer" destination="UhQ-AY-eV2" id="AgZ-3F-CaA"/>
                         <outlet property="question" destination="8nc-tS-0TO" id="raC-f4-ptV"/>
