@@ -1,0 +1,99 @@
+
+/* Class = "UIButton"; normalTitle = "Finalizar quiz"; ObjectID = "1eQ-g2-yLY"; */
+"1eQ-g2-yLY.normalTitle" = "Finalizar quiz";
+
+/* Class = "UITextField"; placeholder = "resposta 3"; ObjectID = "1lL-gF-bkf"; */
+"1lL-gF-bkf.placeholder" = "resposta 3";
+
+/* Class = "UILabel"; text = "2."; ObjectID = "2H0-lP-ZS2"; */
+"2H0-lP-ZS2.text" = "2.";
+
+/* Class = "UILabel"; text = "Perguntas respondidas: 00    👍"; ObjectID = "CMu-aW-zqI"; */
+"CMu-aW-zqI.text" = "Perguntas respondidas: 00    👍";
+
+/* Class = "UITextField"; placeholder = "resposta 4"; ObjectID = "FdI-iL-df1"; */
+"FdI-iL-df1.placeholder" = "resposta 4";
+
+/* Class = "UILabel"; text = "Tempo para realizar o Quiz:"; ObjectID = "GbK-w2-Ch7"; */
+"GbK-w2-Ch7.text" = "Tempo para realizar o Quiz:";
+
+/* Class = "UINavigationItem"; title = "Banco de dados"; ObjectID = "HTB-dj-77b"; */
+"HTB-dj-77b.title" = "Banco de dados";
+
+/* Class = "UILabel"; text = "tempo restante"; ObjectID = "Hwb-mV-hwX"; */
+"Hwb-mV-hwX.text" = "tempo restante";
+
+/* Class = "UILabel"; text = "Quantidade de perguntas para o teste:"; ObjectID = "K62-ea-QgX"; */
+"K62-ea-QgX.text" = "Quantidade de perguntas para o teste:";
+
+/* Class = "UILabel"; text = "4."; ObjectID = "KD9-sJ-jw8"; */
+"KD9-sJ-jw8.text" = "4.";
+
+/* Class = "UILabel"; text = "Adicionar pergunta:"; ObjectID = "MSI-8f-EOs"; */
+"MSI-8f-EOs.text" = "Adicionar pergunta:";
+
+/* Class = "UIButton"; normalTitle = "Iniciar Quiz"; ObjectID = "R0Z-uC-qHL"; */
+"R0Z-uC-qHL.normalTitle" = "Iniciar Quiz";
+
+/* Class = "UILabel"; text = "Correta:"; ObjectID = "Sws-Gx-yQK"; */
+"Sws-Gx-yQK.text" = "Correta:";
+
+/* Class = "UITextField"; placeholder = "número da resposta correta"; ObjectID = "UhQ-AY-eV2"; */
+"UhQ-AY-eV2.placeholder" = "número da resposta correta";
+
+/* Class = "UIButton"; configuration.title = "Limpar banco"; ObjectID = "VCj-CN-2Sr"; */
+"VCj-CN-2Sr.configuration.title" = "Limpar banco";
+
+/* Class = "UITextField"; placeholder = "resposta 2"; ObjectID = "YUI-dx-L39"; */
+"YUI-dx-L39.placeholder" = "resposta 2";
+
+/* Class = "UIButton"; normalTitle = "Ir para a home"; ObjectID = "ZWb-nt-0K1"; */
+"ZWb-nt-0K1.normalTitle" = "Ir para a home";
+
+/* Class = "UILabel"; text = "Perguntas corretas: 00    👏"; ObjectID = "e6k-Pc-EQw"; */
+"e6k-Pc-EQw.text" = "Respostas corretas: 00    👏";
+
+/* Class = "UIButton"; normalTitle = "Configurações"; ObjectID = "kh6-tc-hsX"; */
+"kh6-tc-hsX.normalTitle" = "Configurações";
+
+/* Class = "UILabel"; text = "Banco de dados:"; ObjectID = "m1b-P5-cW8"; */
+"m1b-P5-cW8.text" = "Banco de dados:";
+
+/* Class = "UIButton"; normalTitle = "Reiniciar"; ObjectID = "non-np-gJZ"; */
+"non-np-gJZ.normalTitle" = "Reiniciar";
+
+/* Class = "UIViewController"; title = "Configurações"; ObjectID = "oWH-fd-AfY"; */
+"oWH-fd-AfY.title" = "Configurações";
+
+/* Class = "UILabel"; text = "1."; ObjectID = "pOu-dV-6tm"; */
+"pOu-dV-6tm.text" = "1.";
+
+/* Class = "UITextField"; placeholder = "resposta 1"; ObjectID = "qBb-yh-1wj"; */
+"qBb-yh-1wj.placeholder" = "resposta 1";
+
+/* Class = "UILabel"; text = "3."; ObjectID = "rEV-V3-yUA"; */
+"rEV-V3-yUA.text" = "3.";
+
+/* Class = "UIButton"; configuration.title = "Adicionar perguntas"; ObjectID = "sm6-C5-eys"; */
+"sm6-C5-eys.configuration.title" = "Adicionar perguntas";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "sm6-C5-eys"; */
+"sm6-C5-eys.normalTitle" = "Adicionar perguntas";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "stE-YT-jtj"; */
+"stE-YT-jtj.text" = "100%";
+
+/* Class = "UILabel"; text = "Perguntas erradas: 00    👎"; ObjectID = "ue9-p7-coP"; */
+"ue9-p7-coP.text" = "Respostas erradas: 00    👎";
+
+/* Class = "UILabel"; text = "Resultado"; ObjectID = "vIZ-4g-Xlg"; */
+"vIZ-4g-Xlg.text" = "Resultado";
+
+/* Class = "UIButton"; configuration.title = "Iniciar quiz"; ObjectID = "xVr-Ha-pyF"; */
+"xVr-Ha-pyF.configuration.title" = "Iniciar quiz";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xVr-Ha-pyF"; */
+"xVr-Ha-pyF.normalTitle" = "Iniciar Quiz";
+
+/* Class = "UINavigationItem"; title = "Configurações"; ObjectID = "zVg-Ef-kiM"; */
+"zVg-Ef-kiM.title" = "Configurações";
